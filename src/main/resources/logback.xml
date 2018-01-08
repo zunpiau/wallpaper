@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+    <appender name="appender" class="ch.qos.logback.ext.spring.DelegatingLogbackAppender"/>
+
+    <logger name="org.springframework.security.web" level="INFO" additivity="false">
+        <appender-ref ref="appender"/>
+    </logger>
+
+    <root level="DEBUG">
+        <appender-ref ref="appender"/>
+    </root>
+</configuration>

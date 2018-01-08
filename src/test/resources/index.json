@@ -1,0 +1,275 @@
+{
+  "today": {
+    "slide": {
+      "preview": "//avatars.mds.yandex.net/get-imageoftheday/142379/6c61d291af5c407bacac2a6327eca27f/orig",
+      "back": "//avatars.mds.yandex.net/get-imageoftheday/145843/7416eec9c7414ec7b733e9349c94eccd/orig",
+      "appropriate": {
+        "width": 1920,
+        "height": 1080,
+        "ratio": {
+          "width": 16,
+          "height": 9
+        },
+        "url": "//avatars.mds.yandex.net/get-imageoftheday/142379/bd68250fb3d241b390f8442dd5f06a80/orig",
+        "focus": {
+          "left": 40,
+          "top": 31
+        }
+      }
+    },
+    "snippet": {
+      "title": "Curious gaze",
+      "query": "bird HD",
+      "link": "/images/search?text=bird+HD&amp;banner=no",
+      "description": "A Eurasian bullfinch sits on a hawthorn branch laced with hoarfrost."
+    },
+    "date": "2017-12-15",
+    "author": {
+      "name": "Gianpiero Ferrari",
+      "link": "http://www.fotodom.ru/author/Gianpiero_Ferrari.html",
+      "linkText": "Gianpiero Ferrari on Minden Pictures/Fotodom.ru",
+      "description": null
+    },
+    "partner": "fotodom_minden",
+    "hash_date": "IBcSFQ",
+    "sizes": [
+      {
+        "width": 1040,
+        "height": 1536
+      },
+      {
+        "width": 480,
+        "height": 480
+      },
+      {
+        "width": 1150,
+        "height": 1734
+      },
+      {
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "width": 2880,
+        "height": 1800
+      },
+      {
+        "width": 960,
+        "height": 960
+      },
+      {
+        "width": 2208,
+        "height": 2208
+      },
+      {
+        "width": 2048,
+        "height": 2048
+      },
+      {
+        "width": 851,
+        "height": 315
+      },
+      {
+        "width": 2048,
+        "height": 1536
+      },
+      {
+        "width": 2448,
+        "height": 2448
+      },
+      {
+        "width": 2560,
+        "height": 1600
+      },
+      {
+        "width": 1280,
+        "height": 1024
+      },
+      {
+        "width": 1920,
+        "height": 1200
+      },
+      {
+        "width": 1280,
+        "height": 960
+      },
+      {
+        "width": 1280,
+        "height": 768
+      },
+      {
+        "width": 2560,
+        "height": 1440
+      },
+      {
+        "width": 1920,
+        "height": 1920
+      }
+    ]
+  },
+  "previous": [
+    {
+      "slide": {
+        "preview": "//avatars.mds.yandex.net/get-imageoftheday/137077/d8e3e5f161ef4f46a31b4c4cef0a1a5b/orig",
+        "back": "//avatars.mds.yandex.net/get-imageoftheday/103124/6fe287a8379e4b8bb879c244c942682a/orig"
+      },
+      "snippet": {
+        "title": "Snow swept",
+        "query": "deer HD",
+        "link": "/images/search?text=deer+HD&amp;banner=no",
+        "description": "A white-tailed deer gazes nobly into the distance. Western Montana, USA."
+      },
+      "date": "2017-12-14",
+      "author": {
+        "name": "Donald M. Jones",
+        "link": "http://www.fotodom.ru/author/Donald-M-Jones.html",
+        "linkText": "Donald M. Jones on Minden Pictures/Fotodom.ru",
+        "description": null
+      },
+      "partner": "fotodom_minden",
+      "hash_date": "IBcSFA"
+    },
+    {
+      "slide": {
+        "preview": "//avatars.mds.yandex.net/get-imageoftheday/145843/087aa5011235475c8f3e274ba0017752/orig",
+        "back": "//avatars.mds.yandex.net/get-imageoftheday/145843/8227a7d00d064549ba3fe7edd1545f32/orig"
+      },
+      "snippet": {
+        "title": "Northern lights",
+        "query": "northern lights HD",
+        "link": "/images/search?text=northern+lights+HD&amp;banner=no",
+        "description": "Aurora borealis lights up the sky over Norway."
+      },
+      "date": "2017-12-13",
+      "author": {
+        "name": "Sergey Semenov",
+        "link": "http://www.airpano.ru/Photogallery.php?gallery=243",
+        "linkText": "Sergey Semenov on Airpano",
+        "description": null
+      },
+      "partner": "Airpano",
+      "hash_date": "IBcSEw"
+    },
+    {
+      "slide": {
+        "preview": "//avatars.mds.yandex.net/get-imageoftheday/145843/d0a2906f9b8348f9894df97a5a4a5a9d/orig",
+        "back": "//avatars.mds.yandex.net/get-imageoftheday/193001/9a75e6bf036a4ceb9222839ea9ad4096/orig"
+      },
+      "snippet": {
+        "title": "Namib Desert, Namibia",
+        "query": "desert HD",
+        "link": "/images/search?text=desert+HD&amp;banner=no",
+        "description": "The desert’s name means “vast place” in the local Nama language."
+      },
+      "date": "2017-12-12",
+      "author": {
+        "name": "Oleg Gaponuk",
+        "link": "http://www.airpano.ru/Photogallery.php?gallery=171",
+        "linkText": "Oleg Gaponuk on Airpano",
+        "description": null
+      },
+      "partner": "Airpano",
+      "hash_date": "IBcSEg"
+    },
+    {
+      "slide": {
+        "preview": "//avatars.mds.yandex.net/get-imageoftheday/137077/5fbb99968a4049deaa55a740593c9fe9/orig",
+        "back": "//avatars.mds.yandex.net/get-imageoftheday/103124/844e665bcba7428d94dd12f640a3bb90/orig"
+      },
+      "snippet": {
+        "title": "Norwegian wildlife",
+        "query": "wild animal HD",
+        "link": "/images/search?text=wild+animal+HD&amp;banner=no",
+        "description": "Gray wolves tend to be monogamous, mate for life and live in nuclear families."
+      },
+      "date": "2017-12-11",
+      "author": {
+        "name": "Jasper Doest",
+        "link": "http://www.fotodom.ru/author/Jasper_Doest.html",
+        "linkText": "Jasper Doest on Minden Pictures/Fotodom.ru",
+        "description": null
+      },
+      "partner": "fotodom_minden",
+      "hash_date": "IBcSEQ"
+    },
+    {
+      "slide": {
+        "preview": "//avatars.mds.yandex.net/get-imageoftheday/145843/24127243a3b94a749cb68fb50d9b868c/orig",
+        "back": "//avatars.mds.yandex.net/get-imageoftheday/103124/b2c8c80f89044a14ad7b6cd99c559843/orig"
+      },
+      "snippet": {
+        "title": "Golden Gate Bridge",
+        "query": "bridge HD",
+        "link": "/images/search?text=bridge+HD&amp;banner=no",
+        "description": "San Francisco&#39;s iconic suspension bridge opened in 1937."
+      },
+      "date": "2017-12-10",
+      "author": {
+        "name": "Sergey Semenov",
+        "link": "http://www.airpano.ru/Photogallery.php?gallery=72",
+        "linkText": "Sergey Semenov on Airpano",
+        "description": null
+      },
+      "partner": "Airpano",
+      "hash_date": "IBcSEA"
+    },
+    {
+      "slide": {
+        "preview": "//avatars.mds.yandex.net/get-imageoftheday/142379/ae4bb57fd6e443799e53fadc1c43ff42/orig",
+        "back": "//avatars.mds.yandex.net/get-imageoftheday/117786/c31f46bed45642ff88e8347695551b5d/orig"
+      },
+      "snippet": {
+        "title": "The Grand Canyon",
+        "query": "Grand Canyon HD",
+        "link": "/images/search?text=Grand+Canyon+HD&amp;banner=no",
+        "description": "Arizona&#39;s Grand Canyon is one of the Seven Natural Wonders of the World."
+      },
+      "date": "2017-12-09",
+      "author": {
+        "name": "Sergey Semenov",
+        "link": "http://www.airpano.ru/Photogallery.php?gallery=69",
+        "linkText": "Sergey Semenov on Airpano",
+        "description": null
+      },
+      "partner": "Airpano",
+      "hash_date": "IBcSCQ"
+    },
+    {
+      "slide": {
+        "preview": "//avatars.mds.yandex.net/get-imageoftheday/103124/8c2f30f6c4934a58b5c99536681cab6f/orig",
+        "back": "//avatars.mds.yandex.net/get-imageoftheday/145843/8f7f57ba875e4076a3e181a854497d1a/orig"
+      },
+      "snippet": {
+        "title": "Bamboo snack",
+        "query": "panda HD",
+        "link": "/images/search?text=panda+HD&amp;banner=no",
+        "description": "A panda in the Chengdu Research Base of Giant Panda Breeding, China."
+      },
+      "date": "2017-12-08",
+      "author": {
+        "name": "Sergey Semenov",
+        "link": "http://www.airpano.ru/Photogallery.php?gallery=246",
+        "linkText": "Sergey Semenov on Airpano",
+        "description": null
+      },
+      "partner": "Airpano",
+      "hash_date": "IBcSCA"
+    }
+  ],
+  "previousSizes": {
+    "back": {
+      "width": 400,
+      "height": 200
+    },
+    "preview": {
+      "width": 900,
+      "height": 560
+    },
+    "share": {
+      "width": 900,
+      "height": 560
+    }
+  },
+  "hasPrev": true,
+  "hasNext": false
+}
