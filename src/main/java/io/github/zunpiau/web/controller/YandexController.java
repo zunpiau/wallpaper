@@ -1,6 +1,7 @@
 package io.github.zunpiau.web.controller;
 
 import io.github.zunpiau.dao.YandexRepository;
+import io.github.zunpiau.domain.YandexWallpaper;
 import io.github.zunpiau.web.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -34,11 +35,12 @@ public class YandexController {
         if (!date.matches("\\d{4}-\\d{2}-\\d{2}")) {
             return new Response<>(Response.ResponseCode.BAD_REQUEST, "date format: yyyy-MM-dd");
         }
-        if (repository.get(date) == null) {
+        YandexWallpaper wallpaper = repository.get(date);
+        if (wallpaper == null) {
             return new Response<>(Response.ResponseCode.BAD_REQUEST, "Not available");
-        } else {
-            return new Response<>(repository.get(date));
         }
+        return new Response<>(wallpaper);
+
     }
 
 }
