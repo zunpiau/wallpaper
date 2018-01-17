@@ -1,22 +1,22 @@
 package io.github.zunpiau.task;
 
-import com.mysql.cj.core.log.Slf4JLogger;
 import io.github.zunpiau.dao.YandexRepository;
 import io.github.zunpiau.serialize.YandexDeserializer;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.ResponseBody;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.time.LocalTime;
 
 @Component
 public class SpiderTask {
 
-    private Slf4JLogger logger = new Slf4JLogger(getClass().getName());
+    private Logger logger = LoggerFactory.getLogger(getClass().getName());
     private OkHttpClient client;
     private Request request;
     private YandexDeserializer deserializer;
@@ -48,13 +48,13 @@ public class SpiderTask {
 
     @Scheduled(cron = "30 0 0 * * *", zone = "Asia/Shanghai")
     public void crawl() {
-        logger.logInfo("crawl task start at " + LocalTime.now());
+        logger.info("crawl task start");
         try {
             preform();
         } catch (IOException e) {
-            logger.logError(e.fillInStackTrace());
+            logger.error(e.getMessage());
         }
-        logger.logInfo("crawl task end at " + LocalTime.now());
+        logger.info("crawl task end");
     }
 
     private void preform() throws IOException {
@@ -73,7 +73,7 @@ public class SpiderTask {
                 break;
         }
         String json = page.substring(start, i + 1);
-        logger.logInfo(json);
+        logger.info(json);
         return json;
     }
 

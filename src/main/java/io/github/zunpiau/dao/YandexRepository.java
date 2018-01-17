@@ -1,7 +1,8 @@
 package io.github.zunpiau.dao;
 
-import com.mysql.cj.core.log.Slf4JLogger;
 import io.github.zunpiau.domain.YandexWallpaper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -19,19 +20,19 @@ public class YandexRepository {
 
     @Autowired
     private JdbcTemplate template;
-    private Slf4JLogger logger = new Slf4JLogger(this.getClass().getName());
+    private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
     public String getLast() {
         return template.queryForObject("SELECT url FROM yandex ORDER BY id DESC LIMIT 1", String.class);
     }
 
     public YandexWallpaper get(String date) {
-        logger.logDebug(date);
+        logger.debug(date);
         return template.queryForObject(SQL_QUERY, new YandexRowMapper(), date);
     }
 
     public void save(YandexWallpaper wallpaper) {
-        logger.logDebug(wallpaper.getDate());
+        logger.debug(wallpaper.getDate());
         template.update(SQL_INSERT,
                 wallpaper.getDate(),
                 wallpaper.getUrl(),
