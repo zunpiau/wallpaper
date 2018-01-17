@@ -1,12 +1,13 @@
 package io.github.zunpiau.web.controller;
 
 import io.github.zunpiau.dao.YandexRepository;
-import io.github.zunpiau.domain.YandexWallpaper;
 import io.github.zunpiau.web.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,12 +36,14 @@ public class YandexController {
         if (!date.matches("\\d{4}-\\d{2}-\\d{2}")) {
             return new Response<>(Response.ResponseCode.BAD_REQUEST, "date format: yyyy-MM-dd");
         }
-        YandexWallpaper wallpaper = repository.get(date);
-        if (wallpaper == null) {
-            return new Response<>(Response.ResponseCode.BAD_REQUEST, "Not available");
-        }
-        return new Response<>(wallpaper);
+        return new Response<>(repository.get(date));
 
+    }
+
+    @ResponseBody
+    @ExceptionHandler(EmptyResultDataAccessException.class)
+    public Response emptyResultExceptionHandle() {
+        return new Response<>(Response.ResponseCode.BAD_REQUEST, "Not available");
     }
 
 }

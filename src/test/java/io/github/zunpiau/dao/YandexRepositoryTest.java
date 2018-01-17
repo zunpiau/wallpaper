@@ -47,7 +47,6 @@ public class YandexRepositoryTest {
 
     @Test
     public void get() {
-        assertEquals(repository.get("2017-01-01"), null);
         assertEquals(repository.get("2017-12-17").getHashDate(), "IBcSFw");
     }
 

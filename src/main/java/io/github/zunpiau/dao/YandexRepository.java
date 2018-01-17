@@ -3,7 +3,6 @@ package io.github.zunpiau.dao;
 import com.mysql.cj.core.log.Slf4JLogger;
 import io.github.zunpiau.domain.YandexWallpaper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -23,20 +22,12 @@ public class YandexRepository {
     private Slf4JLogger logger = new Slf4JLogger(this.getClass().getName());
 
     public String getLast() {
-        try {
-            return template.queryForObject("SELECT url FROM yandex ORDER BY id DESC LIMIT 1", String.class);
-        } catch (EmptyResultDataAccessException e) {
-            return null;
-        }
+        return template.queryForObject("SELECT url FROM yandex ORDER BY id DESC LIMIT 1", String.class);
     }
 
     public YandexWallpaper get(String date) {
         logger.logDebug(date);
-        try {
-            return template.queryForObject(SQL_QUERY, new YandexRowMapper(), date);
-        } catch (EmptyResultDataAccessException e) {
-            return null;
-        }
+        return template.queryForObject(SQL_QUERY, new YandexRowMapper(), date);
     }
 
     public void save(YandexWallpaper wallpaper) {
