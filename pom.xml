@@ -29,6 +29,11 @@
             <version>${version.slf4j}</version>
         </dependency>
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <version>${version.slf4j}</version>
+        </dependency>
+        <dependency>
             <groupId>com.github.akiraly.reusable-poms</groupId>
             <artifactId>tomcat-juli-over-slf4j</artifactId>
             <version>4</version>
