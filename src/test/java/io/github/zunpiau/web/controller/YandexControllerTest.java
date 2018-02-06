@@ -29,8 +29,7 @@ public class YandexControllerTest {
 
     @Test
     public void daily() throws Exception {
-        when(repository.getLast()).thenReturn("https://avatars.mds.yandex.net/get-imageoftheday/103124/d93cd1b36a5d45a0ab5728f39a2d4bcb/orig");
-
+        when(repository.getLastUrl()).thenReturn("https://avatars.mds.yandex.net/get-imageoftheday/103124/d93cd1b36a5d45a0ab5728f39a2d4bcb/orig");
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
         mockMvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/yandex"))
                 .andExpect(MockMvcResultMatchers.redirectedUrl("https://avatars.mds.yandex.net/get-imageoftheday/103124/d93cd1b36a5d45a0ab5728f39a2d4bcb/orig"));
@@ -47,10 +46,10 @@ public class YandexControllerTest {
                 "РГО",
                 "IBcSFw"
         );
-        when(repository.get("2017-12-17")).thenReturn(wallpaper);
+        when(repository.getWallpaper("2017-12-17")).thenReturn(wallpaper);
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
         mockMvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/yandex/2017-12-17"))
-                .andExpect(MockMvcResultMatchers.content().string("{\"code\":200,\"data\":{\"date\":\"2017-12-17\",\"url\":\"https://avatars.mds.yandex.net/get-imageoftheday/103124/d93cd1b36a5d45a0ab5728f39a2d4bcb/orig\",\"title\":\"Parallel worlds\",\"description\":\"A frosty morning at Dzhangyskol lake in the Altai Mountains, Russia.\",\"authorName\":\"Vladislav Sokolovsky\",\"authorLink\":\"http://photo.rgo.ru/ru\",\"partner\":\"РГО\",\"hashDate\":\"IBcSFw\"}}"));
+                .andExpect(MockMvcResultMatchers.content().string("{\"code\":200,\"data\":{\"info\":\"2017-12-17\",\"url\":\"https://avatars.mds.yandex.net/get-imageoftheday/103124/d93cd1b36a5d45a0ab5728f39a2d4bcb/orig\",\"title\":\"Parallel worlds\",\"description\":\"A frosty morning at Dzhangyskol lake in the Altai Mountains, Russia.\",\"authorName\":\"Vladislav Sokolovsky\",\"authorLink\":\"http://photo.rgo.ru/ru\",\"partner\":\"РГО\",\"hashDate\":\"IBcSFw\"}}"));
 
     }
 }

@@ -3,7 +3,7 @@
 ### 使用
 - 每日壁纸  
   ````
-  curl -v https://pub.shadowland.cn/wallpaper/yandex/
+  curl -v https://pub.shadowland.cn/wallpaper/yandex
   ````
   ````
   HTTP/1.1 302 Found
@@ -11,7 +11,7 @@
   ````
 - 详细数据  
   ````
-  curl https://pub.shadowland.cn/wallpaper/yandex/2018-01-19
+  curl https://pub.shadowland.cn/wallpaper/yandex/info
   ````
   ````
   {
@@ -28,3 +28,4 @@
      }
    }
   ```` 
+- 添加 `?date=yyyy-MM-dd` 参数指定日期

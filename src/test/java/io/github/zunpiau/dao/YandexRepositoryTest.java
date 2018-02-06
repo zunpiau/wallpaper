@@ -42,12 +42,12 @@ public class YandexRepositoryTest {
 
     @Test
     public void getLast() {
-        assertEquals(repository.getLast(), "https://avatars.mds.yandex.net/get-imageoftheday/103124/d93cd1b36a5d45a0ab5728f39a2d4bcb/orig");
+        assertEquals(repository.getLastUrl(), "https://avatars.mds.yandex.net/get-imageoftheday/103124/d93cd1b36a5d45a0ab5728f39a2d4bcb/orig");
     }
 
     @Test
     public void get() {
-        assertEquals(repository.get("2017-12-17").getHashDate(), "IBcSFw");
+        assertEquals(repository.getWallpaper("2017-12-17").getHashDate(), "IBcSFw");
     }
 
     @After

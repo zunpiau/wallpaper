@@ -15,25 +15,34 @@ import java.sql.SQLException;
 public class YandexRepository {
 
     private final String ALL_FILED = " date, url, title, description, author_name, author_link, partner, hash_date ";
-    private final String SQL_QUERY = "SELECT " + ALL_FILED + " FROM yandex WHERE date = ? ";
-    private final String SQL_INSERT = "INSERT INTO yandex( " + ALL_FILED + " ) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+    private final String SQL_SELECT_ALL = "SELECT " + ALL_FILED + " FROM yandex ";
+    private final String SQL_SELECT_URL = "SELECT url FROM yandex ";
+    private final String SQL_ORDER = " ORDER BY id DESC LIMIT 1";
+    private final String SQL_WHERE = " WHERE date = ?";
 
     @Autowired
     private JdbcTemplate template;
     private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
-    public String getLast() {
-        return template.queryForObject("SELECT url FROM yandex ORDER BY id DESC LIMIT 1", String.class);
+    public String getLastUrl() {
+        return template.queryForObject(SQL_SELECT_URL + SQL_ORDER, String.class);
     }
 
-    public YandexWallpaper get(String date) {
-        logger.debug(date);
-        return template.queryForObject(SQL_QUERY, new YandexRowMapper(), date);
+    public YandexWallpaper getLastWallpaper() {
+        return template.queryForObject(SQL_SELECT_ALL + SQL_ORDER, new YandexRowMapper());
+    }
+
+    public String getUrl(String date) {
+        return template.queryForObject(SQL_SELECT_URL + SQL_WHERE, String.class, date);
+    }
+
+    public YandexWallpaper getWallpaper(String date) {
+        return template.queryForObject(SQL_SELECT_ALL + SQL_WHERE, new YandexRowMapper(), date);
     }
 
     public void save(YandexWallpaper wallpaper) {
         logger.debug(wallpaper.getDate());
-        template.update(SQL_INSERT,
+        template.update("INSERT INTO yandex( " + ALL_FILED + " ) VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
                 wallpaper.getDate(),
                 wallpaper.getUrl(),
                 wallpaper.getTitle(),
