@@ -2,7 +2,6 @@ package io.github.zunpiau.serialize;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.zunpiau.domain.YandexWallpaper;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -14,7 +13,6 @@ import static org.junit.Assert.assertEquals;
 public class YandexDeserializerTest {
 
     @Test
-    @Ignore
     public void convert() throws IOException {
         YandexWallpaper wallpaper = new YandexDeserializer(
                 new ObjectMapper()).convert(
