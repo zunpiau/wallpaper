@@ -1,13 +1,9 @@
 package io.github.zunpiau.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.io.Serializable;
 
 public class YandexWallpaper implements Serializable {
 
-    @JsonIgnore
-    private long id;
     private String date;
     private String url;
     private String title;
@@ -36,14 +32,6 @@ public class YandexWallpaper implements Serializable {
         this.authorLink = authorLink;
         this.partner = partner;
         this.hashDate = hashDate;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getDate() {
