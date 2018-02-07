@@ -4,6 +4,8 @@ import io.github.zunpiau.domain.YandexWallpaper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -14,20 +16,25 @@ import java.sql.SQLException;
 @Repository
 public class YandexRepository {
 
+    private final static String NAME_AND_KEY_URL = "lastUrl";
+    private final static String NAME_AND_KEY_WALLPAPER = "lastWallpaper";
     private final String ALL_FILED = " date, url, title, description, author_name, author_link, partner, hash_date ";
     private final String SQL_SELECT_ALL = "SELECT " + ALL_FILED + " FROM yandex ";
     private final String SQL_SELECT_URL = "SELECT url FROM yandex ";
     private final String SQL_ORDER = " ORDER BY id DESC LIMIT 1";
     private final String SQL_WHERE = " WHERE date = ?";
-
     @Autowired
     private JdbcTemplate template;
+    @Autowired
+    private CacheManager manager;
     private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
+    @Cacheable(value = NAME_AND_KEY_URL, key = "'" + NAME_AND_KEY_URL + "'")
     public String getLastUrl() {
         return template.queryForObject(SQL_SELECT_URL + SQL_ORDER, String.class);
     }
 
+    @Cacheable(value = NAME_AND_KEY_WALLPAPER, key = "'" + NAME_AND_KEY_WALLPAPER + "'")
     public YandexWallpaper getLastWallpaper() {
         return template.queryForObject(SQL_SELECT_ALL + SQL_ORDER, new YandexRowMapper());
     }
@@ -51,6 +58,8 @@ public class YandexRepository {
                 wallpaper.getAuthorLink(),
                 wallpaper.getPartner(),
                 wallpaper.getHashDate());
+        manager.getCache(NAME_AND_KEY_URL).put(NAME_AND_KEY_URL, wallpaper.getUrl());
+        manager.getCache(NAME_AND_KEY_WALLPAPER).put(NAME_AND_KEY_WALLPAPER, wallpaper);
     }
 
     static class YandexRowMapper implements RowMapper<YandexWallpaper> {

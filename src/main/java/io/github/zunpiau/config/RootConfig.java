@@ -12,7 +12,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 
-@Import({DataConfig.class, LogbackConfig.class, WebConfig.class})
+@Import({DataConfig.class, LogbackConfig.class, WebConfig.class, CacheConfig.class})
 @ComponentScan(basePackages = {"io.github.zunpiau"})
 @EnableScheduling
 public class RootConfig {

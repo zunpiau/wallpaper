@@ -2,7 +2,9 @@ package io.github.zunpiau.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class YandexWallpaper {
+import java.io.Serializable;
+
+public class YandexWallpaper implements Serializable {
 
     @JsonIgnore
     private long id;
