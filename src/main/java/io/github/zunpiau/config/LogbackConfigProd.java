@@ -19,7 +19,7 @@ public class LogbackConfigProd {
         RollingFileAppender<ILoggingEvent> appender = new RollingFileAppender<>();
         appender.setContext(ctx);
         TimeBasedRollingPolicy rollingPolicy = new TimeBasedRollingPolicy();
-        rollingPolicy.setMaxHistory(3);
+        rollingPolicy.setMaxHistory(Integer.parseInt(env.getProperty("log.history")));
         rollingPolicy.setParent(appender);
         rollingPolicy.setContext(ctx);
         rollingPolicy.setCleanHistoryOnStart(true);

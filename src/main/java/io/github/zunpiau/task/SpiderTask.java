@@ -8,12 +8,14 @@ import okhttp3.ResponseBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
 @Component
+@PropertySource("classpath:application.properties")
 public class SpiderTask {
 
     private Logger logger = LoggerFactory.getLogger(getClass().getName());
@@ -46,7 +48,7 @@ public class SpiderTask {
         this.repository = repository;
     }
 
-    @Scheduled(cron = "30 0 0 * * *", zone = "Asia/Shanghai")
+    @Scheduled(cron = "${cron.yandex}", zone = "Asia/Shanghai")
     public void crawl() {
         logger.info("crawl task start");
         try {
