@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -49,12 +51,15 @@ public class SpiderTask {
     }
 
     @Scheduled(cron = "${cron.yandex}", zone = "Asia/Shanghai")
-    public void crawl() {
+    @Retryable(value = IOException.class,
+            backoff = @Backoff(3000))
+    public void crawl() throws IOException {
         logger.info("crawl task start");
         try {
             preform();
         } catch (IOException e) {
             logger.error(e.getMessage());
+            throw e;
         }
         logger.info("crawl task end");
     }
