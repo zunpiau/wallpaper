@@ -1,6 +1,7 @@
 package io.github.zunpiau.config;
 
 import ch.qos.logback.ext.spring.web.LogbackConfigListener;
+import io.github.zunpiau.web.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.ServletContext;
@@ -26,6 +27,6 @@ public class ServletInitializer extends AbstractAnnotationConfigDispatcherServle
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[0];
+        return new Class[]{WebConfig.class};
     }
 }

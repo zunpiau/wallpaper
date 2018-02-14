@@ -1,4 +1,4 @@
-package io.github.zunpiau.config;
+package io.github.zunpiau.web;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
