@@ -9,3 +9,11 @@ CREATE TABLE yandex (
   partner     VARCHAR(32)  NOT NULL,
   hash_date   CHAR(6)      NOT NULL
 );
+
+CREATE TABLE bing (
+  id        SERIAL       NOT NULL PRIMARY KEY,
+  date      CHAR(11)     NOT NULL UNIQUE,
+  url       VARCHAR(256) NOT NULL,
+  title     VARCHAR(256) NOT NULL,
+  copyright VARCHAR(128) NOT NULL
+);

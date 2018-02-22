@@ -10,16 +10,16 @@ import java.nio.file.Paths;
 
 import static org.junit.Assert.assertEquals;
 
-public class SpiderTaskTest {
+public class YandexSpiderTaskTest {
 
     @Test
     public void pickup() throws IOException {
-        SpiderTask task = new SpiderTask();
+        YandexSpiderTask task = new YandexSpiderTask();
         assertEquals("2017-12-15", new YandexDeserializer(new ObjectMapper())
                 .convert(task
                         .pickup(new String(Files
                                 .readAllBytes(Paths
-                                        .get("target/test-classes/index.html")))))
+                                        .get("target/test-classes/index_yandex.html")))))
                 .getDate());
     }
 

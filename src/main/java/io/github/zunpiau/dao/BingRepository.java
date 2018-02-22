@@ -1,6 +1,6 @@
 package io.github.zunpiau.dao;
 
-import io.github.zunpiau.domain.YandexWallpaper;
+import io.github.zunpiau.domain.Bingwallpaper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +14,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Repository
-public class YandexRepository extends BaseRepository<YandexWallpaper> {
+public class BingRepository extends BaseRepository<Bingwallpaper> {
 
-    private final static String NAME_AND_KEY_URL = "yandex_lastUrl";
-    private final static String NAME_AND_KEY_WALLPAPER = "yandex_lastWallpaper";
-    private final String ALL_FILED = " date, url, title, description, author_name, author_link, partner, hash_date ";
-    private final String SQL_SELECT_ALL = "SELECT " + ALL_FILED + " FROM yandex ";
-    private final String SQL_SELECT_URL = "SELECT url FROM yandex ";
+    private final static String NAME_AND_KEY_URL = "bing_lastUrl";
+    private final static String NAME_AND_KEY_WALLPAPER = "bing_lastWallpaper";
+    private final String ALL_FILED = " date, url, title, copyright ";
+    private final String SQL_SELECT_ALL = "SELECT " + ALL_FILED + " FROM bing ";
+    private final String SQL_SELECT_URL = "SELECT url FROM bing ";
     private final String SQL_ORDER = " ORDER BY id DESC LIMIT 1";
     private final String SQL_WHERE = " WHERE date = ?";
     private final JdbcTemplate template;
@@ -28,7 +28,7 @@ public class YandexRepository extends BaseRepository<YandexWallpaper> {
     private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
     @Autowired
-    public YandexRepository(JdbcTemplate template, CacheManager manager) {
+    public BingRepository(JdbcTemplate template, CacheManager manager) {
         this.template = template;
         this.manager = manager;
     }
@@ -41,8 +41,8 @@ public class YandexRepository extends BaseRepository<YandexWallpaper> {
 
     @Override
     @Cacheable(value = NAME_AND_KEY_WALLPAPER, key = "'" + NAME_AND_KEY_WALLPAPER + "'")
-    public YandexWallpaper getLastWallpaper() {
-        return template.queryForObject(SQL_SELECT_ALL + SQL_ORDER, new YandexRowMapper());
+    public Bingwallpaper getLastWallpaper() {
+        return template.queryForObject(SQL_SELECT_ALL + SQL_ORDER, new BingRowMapper());
     }
 
     @Override
@@ -51,39 +51,31 @@ public class YandexRepository extends BaseRepository<YandexWallpaper> {
     }
 
     @Override
-    public YandexWallpaper getWallpaper(String date) {
-        return template.queryForObject(SQL_SELECT_ALL + SQL_WHERE, new YandexRowMapper(), date);
+    public Bingwallpaper getWallpaper(String date) {
+        return template.queryForObject(SQL_SELECT_ALL + SQL_WHERE, new BingRowMapper(), date);
     }
 
     @Override
-    public void save(YandexWallpaper wallpaper) {
+    public void save(Bingwallpaper wallpaper) {
         logger.debug(wallpaper.getDate());
-        template.update("INSERT INTO yandex( " + ALL_FILED + " ) VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
+        template.update("INSERT INTO bing( " + ALL_FILED + " ) VALUES(?, ?, ?, ?)",
                 wallpaper.getDate(),
                 wallpaper.getUrl(),
                 wallpaper.getTitle(),
-                wallpaper.getDescription(),
-                wallpaper.getAuthorName(),
-                wallpaper.getAuthorLink(),
-                wallpaper.getPartner(),
-                wallpaper.getHashDate());
+                wallpaper.getCopyright());
         manager.getCache(NAME_AND_KEY_URL).put(NAME_AND_KEY_URL, wallpaper.getUrl());
         manager.getCache(NAME_AND_KEY_WALLPAPER).put(NAME_AND_KEY_WALLPAPER, wallpaper);
     }
 
-    static class YandexRowMapper implements RowMapper<YandexWallpaper> {
+    static class BingRowMapper implements RowMapper<Bingwallpaper> {
 
         @Override
-        public YandexWallpaper mapRow(ResultSet resultSet, int rowNum) throws SQLException {
-            return new YandexWallpaper(
+        public Bingwallpaper mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+            return new Bingwallpaper(
                     resultSet.getString("date"),
                     resultSet.getString("url"),
                     resultSet.getString("title"),
-                    resultSet.getString("description"),
-                    resultSet.getString("author_name"),
-                    resultSet.getString("author_link"),
-                    resultSet.getString("partner"),
-                    resultSet.getString("hash_date")
+                    resultSet.getString("copyright")
             );
         }
     }

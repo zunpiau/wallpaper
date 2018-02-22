@@ -1,11 +1,11 @@
 package io.github.zunpiau.task;
 
 import io.github.zunpiau.dao.YandexRepository;
+import io.github.zunpiau.domain.YandexWallpaper;
 import io.github.zunpiau.serialize.YandexDeserializer;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.ResponseBody;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
@@ -18,16 +18,12 @@ import java.io.IOException;
 
 @Component
 @PropertySource("classpath:application.properties")
-public class SpiderTask {
+public class YandexSpiderTask extends BaseSpiderTask<YandexWallpaper, YandexRepository> {
 
-    private Logger logger = LoggerFactory.getLogger(getClass().getName());
-    private OkHttpClient client;
-    private Request request;
     private YandexDeserializer deserializer;
-    private YandexRepository repository;
 
-    @Autowired
-    public SpiderTask() {
+    public YandexSpiderTask() {
+        logger = LoggerFactory.getLogger(this.getClass());
         this.request = new Request.Builder()
                 .get()
                 .url("http://www.yandex.com/images/")
@@ -56,7 +52,7 @@ public class SpiderTask {
     public void crawl() throws IOException {
         logger.info("crawl task start");
         try {
-            preform();
+            save(serial(request()));
         } catch (IOException e) {
             logger.error(e.getMessage());
             throw e;
@@ -64,11 +60,16 @@ public class SpiderTask {
         logger.info("crawl task end");
     }
 
-    private void preform() throws IOException {
-        repository.save(deserializer.convert(pickup(request())));
+    @Override
+    protected String request() throws IOException {
+        ResponseBody body = client.newCall(request).execute().body();
+        if (body == null) {
+            throw new IOException();
+        }
+        return body.string();
     }
 
-    public String pickup(String page) {
+    protected String pickup(String page) {
         int start = page.indexOf("{\"today\":");
         int i = start;
         for (int countBraces = 0; i < page.length(); i++) {
@@ -84,12 +85,14 @@ public class SpiderTask {
         return json;
     }
 
-    private String request() throws IOException {
-        ResponseBody body = client.newCall(request).execute().body();
-        if (body == null) {
-            throw new IOException();
-        }
-        return body.string();
+    @Override
+    protected YandexWallpaper serial(String s) throws IOException {
+        return deserializer.convert(pickup(s));
+    }
+
+    @Override
+    protected void save(YandexWallpaper wallpaper) {
+        repository.save(wallpaper);
     }
 
 }

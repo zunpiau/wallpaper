@@ -1,9 +1,10 @@
-基于 Spring MVC 和 Spring schedule 的 Yandex 壁纸接口  
+基于 Spring MVC 和 Spring schedule 的 Yandex/Bing 壁纸接口  
 
 ### 使用
+source 为 yandex，bing 之一  
 - 每日壁纸  
   ````
-  curl -v https://pub.shadowland.cn/wallpaper/yandex
+  curl -v https://pub.shadowland.cn/wallpaper/${source}
   ````
   ````
   HTTP/1.1 302 Found
@@ -11,7 +12,7 @@
   ````
 - 详细数据  
   ````
-  curl https://pub.shadowland.cn/wallpaper/yandex/info
+  curl https://pub.shadowland.cn/wallpaper/${source}/info
   ````
   ````
   {

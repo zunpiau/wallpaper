@@ -38,7 +38,9 @@ public class RootConfig {
 
     @Bean
     public TaskScheduler scheduler() {
-        return new ThreadPoolTaskScheduler();
+        ThreadPoolTaskScheduler scheduler = new ThreadPoolTaskScheduler();
+        scheduler.setPoolSize(2);
+        return scheduler;
     }
 
 }
