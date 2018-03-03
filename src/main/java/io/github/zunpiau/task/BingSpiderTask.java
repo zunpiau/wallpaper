@@ -1,5 +1,7 @@
 package io.github.zunpiau.task;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.zunpiau.dao.BingRepository;
 import io.github.zunpiau.domain.Bingwallpaper;
 import okhttp3.OkHttpClient;
@@ -22,11 +24,15 @@ import java.util.regex.Pattern;
 @PropertySource("classpath:application.properties")
 public class BingSpiderTask extends BaseSpiderTask<Bingwallpaper, BingRepository> {
 
-    public BingSpiderTask() {
+    private ObjectMapper mapper;
+
+    @Autowired
+    public BingSpiderTask(ObjectMapper mapper) {
+        this.mapper = mapper;
         logger = LoggerFactory.getLogger(this.getClass());
         this.request = new Request.Builder()
                 .get()
-                .url("https://cn.bing.com/?ensearch=1")
+                .url("https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN")
                 .addHeader("User-Agnet", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.40 Safari/537.36")
                 .build();
     }
@@ -67,19 +73,17 @@ public class BingSpiderTask extends BaseSpiderTask<Bingwallpaper, BingRepository
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Override
     protected Bingwallpaper serial(String s) throws IOException {
-        s = s.replace("\n", "");
-        Matcher urlMatcher = Pattern.compile("g_prefetch *= *\\{.*?url: *'(.*?)'.*?\\}")
-                .matcher(s);
-        urlMatcher.find();
-        String url = urlMatcher.group(1);
-        url = "https://cn.bing.com" + url.replace("\\/", "/");
-        Matcher infoMatcher = Pattern.compile("_H\\.mcImgData *= *\\{.*?copyright\": *\"(.*?)\",.*?\\}")
-                .matcher(s);
-        infoMatcher.find();
-        Matcher copyMatcher = Pattern.compile("(.*?) *\\(© *(.*?)\\)")
-                .matcher(infoMatcher.group(1));
+        JsonNode root = mapper.readTree(s)
+                .get("images")
+                .get(0);
+        String url = root.get("url").asText();
+        String info = root.get("copyright").asText();
+        Matcher copyMatcher = Pattern.compile("^(.*)\\(© *(.*)[)）]$").matcher(info);
         copyMatcher.find();
-        return new Bingwallpaper(LocalDate.now().toString(), url, copyMatcher.group(1), copyMatcher.group(2));
+        return new Bingwallpaper(LocalDate.now().toString(),
+                "https://cn.bing.com" + url,
+                copyMatcher.group(1).trim(),
+                copyMatcher.group(2));
     }
 
     @Override
