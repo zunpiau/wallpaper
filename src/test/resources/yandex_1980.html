@@ -1,0 +1,3110 @@
+<!DOCTYPE html>
+<html class="i-ua_js_no i-ua_css_standard" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Yandex.Images: search for images on the internet, search by image</title>
+    <script nonce="9632594891591353114085">;(function (d, e, c, r) {
+        e = d.documentElement;
+        c = "className";
+        r = "replace";
+        e[c] = e[c][r]("i-ua_js_no", "i-ua_js_yes");
+        if (d.compatMode != "CSS1Compat") e[c] = e[c][r]("i-ua_css_standart", "i-ua_css_quirks")
+    })(document);
+    ;(function (d, e, c, n, w, v, f) {
+        e = d.documentElement;
+        c = "className";
+        n = "createElementNS";
+        f = "firstChild";
+        w = "http://www.w3.org/2000/svg";
+        e[c] += " i-ua_svg_" + (!!d[n] && !!d[n](w, "svg").createSVGRect ? "yes" : "no");
+        v = d.createElement("div");
+        v.innerHTML = "<svg/>";
+        e[c] += " i-ua_inlinesvg_" + ((v[f] && v[f].namespaceURI) == w ? "yes" : "no");
+    })(document);
+    ;(function (d, e, s, o, p) {
+        e = d.documentElement;
+        s = e.style;
+        o = "object-fit";
+        p = "OObjectFit";
+        e.className += (o in s || p in s) ? "" : " i-ua_" + o + "_no"
+    })(document);
+    ;(function (w, e, s, c, x, l, p, d) {
+        c = "className";
+        x = "deviceXDPI";
+        l = "logicalXDPI";
+        p = "devicePixelRatio";
+        d = x in s && l in s && s[x] / s[l] || p in w && w[p];
+        d > 1 && (e[c] += " i-ua_retina_yes")
+    })(window, document.documentElement, screen);
+    ;(function (w, h, c) {
+        h[c] += " i-ua_orient_" + (w.innerWidth > w.innerHeight ? "landscape" : "portrait");
+    })(window, document.documentElement, "className");
+    ;(function (d, e, p) {
+        e = d.documentElement;
+        p = "placeholder";
+        e.className += " i-ua_" + p + (p in d.createElement("input") ? "_yes" : "_no")
+    })(document);</script>
+    <link rel="search" title="Yandex.Images" type="application/opensearchdescription+xml" href="/images/opensearch.xml">
+    <meta name="keywords" content="yandex images, image search, photo, photographs, search by image and photo">
+    <meta name="description"
+          content="Funny pictures, backgrounds for your dekstop, diagrams and illustrated instructions - answers to your questions in the form of images. Search by image and photo">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=1">
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="https://yandex.com/images/touch/">
+    <link rel="alternate" media="handheld" href="https://yandex.com/images/smart/">
+    <link rel="dns-prefetch" href="//im0-tub-com.yandex.net">
+    <link rel="shortcut icon" href="//yastatic.net/images-thumbs/_/8cS_MbHl6VBweqVjWeI-eNy0tzE.ico">
+    <script nonce="9632594891591353114085">!function () {
+        window.Ya || (window.Ya = {}), window.Ya.Images || (window.Ya.Images = {}), window.Ya.Video || (window.Ya.Video = {})
+    }();
+    !function () {
+        var n = window.Ya;
+        n.callWithParams = function (a) {
+            a.call(this, n.__inline_params__ || {}, window, document), n.__inline_params__ = null
+        }
+    }();
+    !function () {
+        var t = function () {
+            this._data = {}
+        };
+        t.prototype.set = function (t, a, r) {
+            this._data[t] || (this._data[t] = {});
+            for (var n = a.split("."), i = this._data[t], o = 0, e = n[0], s = n.length; s > o; e = n[++o]) void 0 !== i && null !== i && i.hasOwnProperty(e) ? o !== s - 1 && (i = i[e]) : (i[e] = {}, o !== s - 1 && (i = i[e]));
+            return i[n[n.length - 1]] = r, this
+        }, t.prototype.get = function (t, a) {
+            if (!a) return this._data[t];
+            for (var r = a.split("."), n = this._data[t], i = 0, o = r[0], e = r.length; e > i; o = r[++i]) {
+                if (void 0 === n || null === n || !n.hasOwnProperty(o)) return;
+                n = n[o]
+            }
+            return n
+        }, t.prototype.clear = function () {
+            return this._data = {}, this
+        }, window.Ya.Images.dataStore = t
+    }();
+    window.Ya.Images.ThumbsStore = new window.Ya.Images.dataStore;
+    window.Ya.__inline_params__ = JSON.parse('{\u0022srcPrefix\u0022:\u0022https:\u002f\u002fyandex.com\u002fclck\u0022}');
+    window.Ya.callWithParams(function (c) {
+        window.Ya.Images.errcnt = function (i, r) {
+            var a = i ? i.src : location.href;
+            (new Image).src = c.srcPrefix + "/click/dtype=stred/pid=40/cid=" + r + "/*" + a
+        }
+    });
+    !function () {
+        var t = {
+            getFittedItems: function (t, i) {
+                this.config = i;
+                for (var h, e = this.createEmptyRow(), o = [], n = 0, r = 0, s = t.length; s > r && n !== i.rowsNumber; r++) h = t[r], e.items.push(h), e.width += h.width + i.marginRight, this.shouldFitRow(e) && (Array.prototype.push.apply(o, this.fitItemsInRow(e).items), o[o.length - 1].isLast = !0, e = this.createEmptyRow(), n++);
+                return o
+            }, shouldFitRow: function (t) {
+                var i = this.config.rowWidth * (Number(this.config.nextImgThreshhold) >= 0 ? Number(this.config.nextImgThreshhold) : .15);
+                return 1 === t.items.length ? t.items[0].width - this.config.rowWidth > i : t.width + i >= this.config.rowWidth
+            }, createEmptyRow: function () {
+                return {width: 0, items: []}
+            }, adjustRowWidth: function (t, i) {
+                var h, e = this.config.rowWidth;
+                for (h = 0; e > i; h++) t.items[h] && (t.items[h].newWidth++ , i++);
+                for (h = 0; i > e; h++) t.items[h] && (t.items[h].newWidth-- , i--)
+            }, fitItemsInRow: function (t) {
+                var i, h, e = this.config, o = t.items.length * e.marginRight, n = t.width - o, r = e.rowWidth - o,
+                    s = r / n, w = Math.round(e.baseRowHeight * s), d = 0;
+                for (h = 0; h < t.items.length; h++) i = t.items[h], i.newWidth = Math.round(i.width * s), i.newHeight = Math.ceil(i.height * s), i.rowHeight = w, d += i.newWidth;
+                return d += o, this.adjustRowWidth(t, d), t
+            }, rowHeightFactor: .5
+        };
+        window.Ya.Images.Justifier = t
+    }();
+    (function () {
+        window.Ya.Images.rowHeight = 190;
+        window.Ya.Images.serpMargin = 40;
+        window.Ya.Images.itemMargin = 8;
+        window.Ya.Images.platform = "desktop";
+        window.Ya.Images.nextImgThreshhold = 0;
+    })();
+    !function () {
+        window.Ya.Images.setThumbHeight = function (t, e, s) {
+            if (t && t.style) {
+                t.style.height = e + "px";
+                var i = t.getAttribute("data-src");
+                i && (i = i.substr(0, i.indexOf("&h=")) + "&h=" + e, t.src = i, t.removeAttribute("data-src"), window.Ya.Images.ThumbsStore && window.Ya.Images.ThumbsStore.set(s, "fittedItem.newThumbSrc", i))
+            }
+        }
+    }();
+    !function () {
+        function e(e, i) {
+            e && (i.w && (e.style.width = i.w + "px"), i.h && (e.style.height = i.h + "px"))
+        }
+
+        window.Ya.Images.fitImages = function (i) {
+            if (i.container) {
+                i.containerWidth || (i.containerWidth = window.innerWidth - 2 * window.Ya.Images.itemMargin), i.itemSelector || (i.itemSelector = ".justifier__item"), i.linkSelector || (i.linkSelector = ".serp-item__link");
+                var t, o, h, r, n, w, a, s, g, d, m = i.container, l = m.querySelectorAll(i.itemSelector),
+                    p = i.containerWidth + window.Ya.Images.itemMargin, c = window.Ya.Images.Justifier, u = {
+                        rowWidth: p,
+                        baseRowHeight: i.baseRowHeight || Math.min(Math.floor(p * c.rowHeightFactor), window.Ya.Images.rowHeight),
+                        marginRight: window.Ya.Images.itemMargin,
+                        nextImgThreshhold: window.Ya.Images.nextImgThreshhold,
+                        rowsNumber: i.rowsNumber
+                    }, I = !i.isReduceNesting && "desktop" === window.Ya.Images.platform,
+                    f = window.Ya.Images.setThumbHeight, H = I ? 1 : 1.5, y = JSON.parse, b = Math.round, Y = [],
+                    x = [], R = [];
+                for (w = 0; w < l.length; w++) t = y(l[w].getAttribute("data-size")), s = l[w].getAttribute("data-crop"), s && (s = y(s)), a = t[1] * H < u.baseRowHeight ? H * t[1] : u.baseRowHeight, Y.push({
+                    width: t[0] * (a / t[1]),
+                    height: a,
+                    crop: s && {x: s[0], y: s[1], w: s[2], h: s[3]}
+                });
+                for (o = c.getFittedItems(Y, u), w = 0; w < l.length; w++) h = o[w], t = l[w], window.Ya.Images.ThumbsStore && window.Ya.Images.ThumbsStore.set(t.id, "fittedItem", h), n = t.firstChild, I && n.firstChild && (n = n.firstChild), r = n.firstChild, t.style.display = "", !r && h ? e(t, {
+                    w: h.newWidth,
+                    h: h.rowHeight
+                }) : h ? (e(t, {
+                    w: h.newWidth,
+                    h: h.rowHeight
+                }), h.crop ? (g = b(100 / h.crop.h * h.newHeight), f(r, g, t.id), h.crop.y > 0 && (r.style.marginTop = -b(g * h.crop.y / 100) + "px"), h.crop.x > 0 && (d = b(100 / h.crop.w * h.newWidth), r.style.marginLeft = -b(d * h.crop.x / 100) + "px"), e(n, {h: h.newHeight})) : f(r, h.newHeight, t.id), h.rowHeight > h.newHeight ? n.style.paddingTop = b((h.rowHeight - h.newHeight) / 2) + "px" : n.style.paddingTop = "") : i.showDangling ? (e(t, {
+                    w: Y[w].width,
+                    h: Math.max(u.baseRowHeight, Y[w].height)
+                }), e(r, {h: Y[w].height}), u.baseRowHeight > Y[w].height && (n.style.paddingTop = b((u.baseRowHeight - Y[w].height) / 2) + "px")) : t.style.display = "none", R.push(t.id), h && h.isLast && (x.push(R), R = []);
+                return 0 !== R.length && x.push(R), e(m, {w: p}), i.fitIncuts && window.Ya.Images.fitIncuts(i, x), i.reorderFromRow > 0 && window.Ya.Images.reorder(l, x, i.reorderFromRow, i.reorderMinLength), m.style.visibility = "visible", x
+            }
+        }
+    }();
+    !function () {
+        window.Ya.Images.fitIncuts = function (e, i) {
+            for (var n, t, s, o, a, d, r, c = document.querySelectorAll(".incut_type_related"), w = (e.thumbRows || []).length, u = w + i.length, l = 0; l < c.length; l++) if (o = c[l], n = o.getAttribute("data-position-type"), s = parseInt(o.getAttribute("data-position"), 10), t = s - w, "line" === n) if (t >= 0 && t <= i.length) {
+                if (a = t > 0 ? i[t - 1] : i[0], r = t > 0 ? a[a.length - 1] : a[0], d = e.container.querySelector('[id="' + r + '"]'), "none" === d.style.display) continue;
+                t > 0 ? window.Ya.Images._insertAfter(o, d) : window.Ya.Images._insertBefore(o, d), window.Ya.Images._showIncut(o)
+            } else s > u && !window.Ya.Images._isIncutHidden(o) && window.Ya.Images._hideIncut(o); else "top" === n && (window.Ya.Images._prependSerpList(o), window.Ya.Images._showIncut(o))
+        }, window.Ya.Images._insertBefore = function (e, i) {
+            i.parentNode.insertBefore(e, i)
+        }, window.Ya.Images._insertAfter = function (e, i) {
+            for (var n = i.parentNode, t = i.nextSibling; t && !t.classList.contains("serp-item");) t = t.nextSibling;
+            t ? n.insertBefore(e, t) : n.appendChild(e)
+        }, window.Ya.Images._prependSerpList = function (e) {
+            var i = document.querySelector(".serp-list"), n = i.parentNode;
+            n.insertBefore(e, i)
+        }, window.Ya.Images._showIncut = function (e) {
+            window.BEM && e.classList.contains("incut_visibility_hidden") ? $(e).bem("incut").show() : e.classList.remove("incut_visibility_hidden")
+        }, window.Ya.Images._hideIncut = function (e) {
+            e.classList.add("incut_visibility_hidden")
+        }, window.Ya.Images._isIncutHidden = function (e) {
+            return e.classList.contains("incut_visibility_hidden")
+        }
+    }();</script>
+    <script nonce="9632594891591353114085">window.Ya.__inline_params__ = JSON.parse('{\u0022images\u0022:[\u0022https:\u002f\u002fyastatic.net\u002fimages\u002dislands\u002f_\u002fa57bBCVJH6gx3qopb_62QLLeXTQ.svg\u0022]}');
+    window.Ya.callWithParams(function (a) {
+        for (var i = a.images; i.length;) (new Image).src = i.shift()
+    });</script>
+    <style nonce="9632594891591353114085">
+        .header,
+        .input_disabled_yes,
+        .input_disabled_yes .input__control {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none
+        }
+
+        .header,
+        .header__main {
+            position: relative;
+            width: 100%
+        }
+
+        .header .header__nav,
+        .input__clear {
+            visibility: hidden
+        }
+
+        .button,
+        .link,
+        .service__url {
+            text-decoration: none
+        }
+
+        .header {
+            -webkit-transition: margin .3s ease-in-out;
+            -moz-transition: margin .3s ease-in-out;
+            transition: margin .3s ease-in-out;
+            z-index: 4;
+            user-select: none
+        }
+
+        .header .layout__col {
+            display: table-cell
+        }
+
+        .b-page_type_search .header_cbir-panel_visible .advanced-search,
+        .header__main.header__main_always-hidden_yes,
+        body .header__action_hidden_yes {
+            display: none
+        }
+
+        body .header__nav {
+            -webkit-transition: margin .3s ease-in-out, width .3s ease-in-out;
+            -moz-transition: margin .3s ease-in-out, width .3s ease-in-out;
+            transition: margin .3s ease-in-out, width .3s ease-in-out;
+            vertical-align: middle
+        }
+
+        .input__control,
+        .layout__col {
+            vertical-align: top
+        }
+
+        .header__search {
+            -webkit-transition: width .3s ease-in-out;
+            -moz-transition: width .3s ease-in-out;
+            transition: width .3s ease-in-out
+        }
+
+        @media screen and (max-width: 1024px) {
+            body.b-page_mobile_yes .header__nav,
+            body.b-page_mobile_yes .header__search {
+                padding-right: 5px
+            }
+        }
+
+        .b-page_show-tabs_yes .header__under {
+            margin-top: 0
+        }
+
+        .b-page_type_search .header_filters_light {
+            margin-bottom: 29px
+        }
+
+        .header__main {
+            z-index: 6;
+            display: table;
+            background: #fff;
+            padding: 14px 0;
+            min-width: 600px;
+            height: 42px;
+            box-shadow: none
+        }
+
+        .head-filter,
+        .header__filters-count,
+        .header__nav,
+        .header__under,
+        .header__user {
+            display: none
+        }
+
+        .b-page_show-tabs_yes .header__main {
+            height: 42px;
+            padding-bottom: 0
+        }
+
+        .header__logo {
+            text-align: right
+        }
+
+        .header__logo .logo_lang_en {
+            margin-top: -1px
+        }
+
+        .header .header__main .header__logo {
+            width: 130px;
+            min-width: 130px;
+            position: static;
+            text-align: left;
+            line-height: 12px
+        }
+
+        .header .header__main .header__logo.header__logo_lang_en {
+            padding-top: 3px
+        }
+
+        .header__logo .logo {
+            margin-right: 4px;
+            position: absolute;
+            margin-left: 20px
+        }
+
+        .header__logo .logo_style_ys-en-87x35 {
+            margin-top: 0
+        }
+
+        .header__search2 {
+            max-width: 638px;
+            width: 638px
+        }
+
+        .header .header__main .layout__col {
+            padding: 0
+        }
+
+        .header .layout__col.header__nav {
+            padding-left: 20px;
+            padding-right: 10px;
+            white-space: nowrap
+        }
+
+        .b-page_show-tabs_yes .header .header__main .layout__col {
+            line-height: 0
+        }
+
+        body .header_fixed_yes {
+            position: relative;
+            min-height: 70px
+        }
+
+        body .header_fixed_yes .header__wrapper {
+            position: fixed;
+            width: 100%;
+            -webkit-transform: translateZ(0)
+        }
+
+        .header.header_fixed_yes {
+            position: static
+        }
+
+        .header.header_fixed_yes .header__wrapper {
+            position: static;
+            -webkit-transform: none
+        }
+
+        .header.header_fixed_yes .header__main,
+        .header.header_fixed_yes .header__under {
+            position: fixed
+        }
+
+        .header.header_fixed_yes .header__under {
+            top: 53px
+        }
+
+        .header.header_fixed_yes .header__main {
+            z-index: 1000
+        }
+
+        .popup2.suggest2 {
+            z-index: 999 !important
+        }
+
+        .input {
+            position: relative;
+            display: inline-block;
+            width: 100%
+        }
+
+        .input_disabled_yes,
+        .input_disabled_yes .input__control {
+            user-select: none
+        }
+
+        .input_disabled_yes .input__box,
+        .input_disabled_yes .input__control {
+            cursor: default
+        }
+
+        .input__box {
+            position: relative;
+            display: block;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            cursor: text
+        }
+
+        .input__control,
+        .spin2 {
+            -moz-box-sizing: border-box
+        }
+
+        .input__box:before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+            content: '';
+            background-clip: padding-box
+        }
+
+        .input__found {
+            position: absolute;
+            z-index: 1;
+            display: none;
+            padding-left: 6px;
+            white-space: nowrap;
+            line-height: 36px;
+            color: #bbb;
+            font-size: 14px
+        }
+
+        .input__found_visibility_visible {
+            display: block
+        }
+
+        .input_focused_yes .input__found {
+            display: none
+        }
+
+        .input__query-holder {
+            position: absolute;
+            top: -32767px;
+            left: -32767px;
+            display: block;
+            visibility: hidden;
+            white-space: pre
+        }
+
+        .input__control {
+            position: relative;
+            z-index: 3;
+            box-sizing: border-box;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            font-size: 100%;
+            color: #000;
+            border: 0 solid transparent;
+            outline: 0;
+            background: 0 0;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-appearance: none
+        }
+
+        .input__control::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        .input__control::-webkit-search-cancel-button {
+            display: none
+        }
+
+        .input__control::-ms-clear {
+            display: none
+        }
+
+        .input__control:-webkit-autofill {
+            border-top-width: 2px;
+            border-bottom-width: 2px;
+            background-clip: content-box;
+            -webkit-box-shadow: inset 0 0 0 50px #fff;
+            -webkit-text-fill-color: #000
+        }
+
+        .input__control::-webkit-input-placeholder {
+            -webkit-text-fill-color: #999
+        }
+
+        .input__service-label.service {
+            display: block;
+            line-height: 30px
+        }
+
+        .input__cbir-button,
+        .input_disabled_yes .input__clear {
+            display: none
+        }
+
+        .input__service-label .service__url {
+            position: relative;
+            padding: 0 12px 0 13px;
+            white-space: nowrap;
+            text-decoration: none;
+            font-size: 16px;
+            color: #000;
+            border-right: 1px solid #e4e3df;
+            border-right: 1px solid rgba(0, 0, 0, .08);
+            background: #f7f6f3;
+            background: -webkit-linear-gradient(top, rgba(255, 225, 120, .1), rgba(0, 0, 0, .02));
+            background: -moz-linear-gradient(top, rgba(255, 225, 120, .1), rgba(0, 0, 0, .02));
+            background: linear-gradient(to bottom, rgba(255, 225, 120, .1), rgba(0, 0, 0, .02))
+        }
+
+        .input__service-label .service__url:visited {
+            color: #000
+        }
+
+        .input__service-label:hover {
+            color: red
+        }
+
+        .input_theme_websearch .input__cbir {
+            height: 32px;
+            line-height: 32px;
+            top: 0;
+            margin: 2px 0 0 2px
+        }
+
+        .input__clear {
+            position: absolute;
+            z-index: 5;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            pointer-events: none;
+            opacity: 0;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            -webkit-transition: visibility 0s linear .1s, opacity .1s ease-out;
+            -moz-transition: visibility 0s linear .1s, opacity .1s ease-out;
+            transition: visibility 0s linear .1s, opacity .1s ease-out
+        }
+
+        .input_size_s .input__clear,
+        .input_size_xs .input__clear {
+            background-image: url(https://yastatic.net/islands/_/B8eOwa4HB-JnzSOAZiWnu0hWGAk.svg)
+        }
+
+        .input_size_m .input__clear {
+            background-image: url(https://yastatic.net/islands/_/eS-nxtWWJ1LfBWLfd096swuFjH4.svg)
+        }
+
+        .i-ua_inlinesvg_yes .input__clear {
+            background-image: url(https://yastatic.net/images-islands/_/kVR-ssz_TUiQo0Ih-eum-VaKtx8.svg)
+        }
+
+        .i-ua_inlinesvg_yes .input_size_s .input__clear {
+            width: 10px;
+            height: 10px;
+            top: 8px;
+            right: 6px;
+            background-image: url(https://yastatic.net/images-islands/_/n0PFkhVUbuEUT6SD1dv_wbkmPII.svg)
+        }
+
+        .search2__input .input__clear {
+            background-image: url(https://yastatic.net/images-islands/_/o-7lIQtC8TDs0giffDzPDpXz1F4.svg)
+        }
+
+        .input__clear_visibility_visible {
+            visibility: visible;
+            cursor: pointer;
+            pointer-events: auto;
+            opacity: .3;
+            -webkit-transition: opacity .1s ease-out;
+            -moz-transition: opacity .1s ease-out;
+            transition: opacity .1s ease-out
+        }
+
+        .b-page .page-layout .direct_visibility_transparent,
+        .spin2:after {
+            visibility: hidden
+        }
+
+        .input__clear_visibility_visible:hover {
+            opacity: .8
+        }
+
+        .input_size_ws-head {
+            font-size: 18px;
+            line-height: 36px
+        }
+
+        .input_size_ws-head:before {
+            border-width: 2px 0 2px 2px
+        }
+
+        .input_size_ws-head .input__control {
+            border-right-width: 30px;
+            height: 36px;
+            border-left-width: 13px
+        }
+
+        .input_theme_websearch .input__clear {
+            width: 32px;
+            height: 36px;
+            background-image: url(https://yastatic.net/islands/_/nJL92_8XGrQ8WN7LePOnzmpHzd4.svg);
+            background-size: 16px
+        }
+
+        .b-page_category_yes .b-page__content,
+        .b-page_category_yes .page-layout__column_type_content,
+        html {
+            height: 100%
+        }
+
+        .input_theme_websearch {
+            position: relative;
+            font-family: arial, sans-serif;
+            color: #000
+        }
+
+        .input_theme_websearch .input__control {
+            font-family: inherit
+        }
+
+        .input_theme_websearch .input__box:before {
+            content: none
+        }
+
+        .input_theme_websearch:before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            content: '';
+            border-style: solid;
+            border-color: #ffdb4d;
+            background-color: #fff;
+            background-clip: padding-box
+        }
+
+        .b-page,
+        .service {
+            position: relative
+        }
+
+        .link {
+            outline: 0;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer
+        }
+
+        .link_disabled_yes {
+            pointer-events: none;
+            cursor: default
+        }
+
+        .button,
+        .i-ua_platform_ios.b-page__body {
+            -webkit-tap-highlight-color: transparent;
+            cursor: pointer
+        }
+
+        .link__icon {
+            -webkit-transition: opacity .15s ease-out;
+            -moz-transition: opacity .15s ease-out;
+            transition: opacity .15s ease-out
+        }
+
+        .link:visited {
+            color: #551a8b
+        }
+
+        .link.service__url:hover,
+        .link:hover {
+            color: #c00
+        }
+
+        .service {
+            display: inline-block;
+            margin: 0;
+            text-align: center;
+            font-size: 15px;
+            line-height: 16px;
+            z-index: 5
+        }
+
+        .service__url {
+            display: inline-block
+        }
+
+        .b-page_visible-serp .page-layout,
+        .service__name {
+            display: block
+        }
+
+        .b-page_visible-serp .incut_type_related,
+        .b-page_visible-serp .incut_visibility_hidden,
+        .b-page_visible-serp .more,
+        .b-page_visible-serp .pane2-controller__gallery-list {
+            display: none
+        }
+
+        .b-page_visible-serp.b-page_type_search .page-layout {
+            margin-top: 73px
+        }
+
+        body {
+            margin: 0
+        }
+
+        .b-page__body {
+            font-family: Helvetica, Arial, sans-serif;
+            margin: 0;
+            font-size: .8em;
+            color: #000;
+            background: #fff
+        }
+
+        .b-page {
+            min-height: 100%;
+            padding: 0;
+            overflow-y: scroll;
+            background-color: #fff
+        }
+
+        body.b-page__body {
+            font-size: 13px;
+            line-height: 1.154
+        }
+
+        .i-flashcookie {
+            position: absolute;
+            left: -10000px;
+            top: 0
+        }
+
+        .b-page_scroll_no {
+            position: fixed;
+            width: 100%;
+            height: 100%
+        }
+
+        .b-page_type_index {
+            overflow: auto
+        }
+
+        .b-page_scroll-disabled_yes,
+        .logo_type_link,
+        .serp-list_type_index .serp-item__preview {
+            overflow: hidden
+        }
+
+        .b-page_type_search .page-layout__column_type_content,
+        .b-page_type_search-by-image .page-layout__column_type_content,
+        .b-page_type_similar .page-layout__column_type_content {
+            margin: 0 20px 0 138px
+        }
+
+        .b-page_type_search .search-by-image,
+        .b-page_type_similar .search-by-image {
+            display: block
+        }
+
+        .b-page_type_search-by-image .more_direction_next {
+            width: 730px
+        }
+
+        @media (max-width: 1024px) {
+            .b-page_type_search-by-image .more_direction_next {
+                width: 560px
+            }
+        }
+
+        .b-page_type_index .page-layout__column_type_preview,
+        .page-layout,
+        .page-layout__column_type_navigation {
+            display: none
+        }
+
+        .layout__col,
+        .logo {
+            display: inline-block
+        }
+
+        .page-layout__column.page-layout__column_type_content {
+            margin-left: 20px
+        }
+
+        .b-link:link,
+        span.b-link {
+            color: #1a3dc1
+        }
+
+        .b-link:hover,
+        .b-link:visited:hover {
+            color: red
+        }
+
+        .layout_type_serp .layout__col {
+            padding-right: 10px;
+            padding-left: 10px
+        }
+
+        .layout_type_serp .layout__col_size_1 {
+            width: 44px
+        }
+
+        .layout_type_serp .layout__col_size_2 {
+            width: 108px
+        }
+
+        .layout_type_serp .layout__col_size_3 {
+            width: 172px
+        }
+
+        .layout_type_serp .layout__col_size_4 {
+            width: 236px
+        }
+
+        .layout_type_serp .layout__col_size_5 {
+            width: 300px
+        }
+
+        .layout_type_serp .layout__col_size_6 {
+            width: 364px
+        }
+
+        .layout_type_serp .layout__col_size_7 {
+            width: 428px
+        }
+
+        .layout_type_serp .layout__col_size_8 {
+            width: 492px
+        }
+
+        .layout_type_serp .layout__col_size_9 {
+            width: 556px
+        }
+
+        .layout_type_serp .layout__col_size_10 {
+            width: 620px
+        }
+
+        .logo {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain
+        }
+
+        .b-page .page-layout .direct_visibility_hidden,
+        .competitors_visibility_hidden,
+        .footer,
+        .footer.footer_hidden_yes,
+        .more_direction_next,
+        .spin2 {
+            display: none
+        }
+
+        @media print {
+            .logo {
+                -webkit-print-color-adjust: exact
+            }
+        }
+
+        .logo_type_link {
+            white-space: nowrap;
+            text-indent: 100%;
+            outline: 0
+        }
+
+        .logo_name_ys-en-87x35 {
+            width: 87px;
+            height: 35px;
+            background-image: url(https://yastatic.net/islands/_/W5E8s3ZxddTVAc2-tL5VvgPy6ZY.svg)
+        }
+
+        .logo_name_ys-ru-86x35 {
+            width: 86px;
+            height: 35px;
+            background-image: url(https://yastatic.net/islands/_/RQWGFypkIRAzEbaERs_Sq8zKRzY.svg)
+        }
+
+        .spin2 {
+            box-sizing: border-box;
+            border: 2px solid transparent;
+            border-radius: 100px;
+            background-image: url(https://yastatic.net/islands/_/lMheXM1Y3XcixfNpGnrupH6cjfc.gif);
+            background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+            background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))
+        }
+
+        .spin2:after {
+            content: '\00A0'
+        }
+
+        .i-ua_platform_opera .spin2:not(.spin2_progress_yes) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            visibility: hidden
+        }
+
+        .spin2_size_m {
+            width: 32px;
+            height: 32px;
+            font-size: 15px;
+            line-height: 28px;
+            background-position: -2px -73px
+        }
+
+        .spin2_progress_yes {
+            display: inline-block;
+            border-top-color: #fc0;
+            border-left-color: #fc0;
+            -webkit-animation: islands-spin2 1s infinite linear;
+            -moz-animation: islands-spin2 1s infinite linear;
+            animation: islands-spin2 1s infinite linear;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            backface-visibility: hidden
+        }
+
+        @-webkit-keyframes islands-spin2 {
+            from {
+                -webkit-transform: rotate(0);
+                transform: rotate(0)
+            }
+            to {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg)
+            }
+        }
+
+        @-moz-keyframes islands-spin2 {
+            from {
+                -moz-transform: rotate(0);
+                transform: rotate(0)
+            }
+            to {
+                -moz-transform: rotate(360deg);
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes islands-spin2 {
+            from {
+                -webkit-transform: rotate(0);
+                -moz-transform: rotate(0);
+                transform: rotate(0)
+            }
+            to {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                transform: rotate(360deg)
+            }
+        }
+
+        .i-ua_platform_opera .spin2_progress_yes {
+            position: static;
+            visibility: visible
+        }
+
+        .search2__input .input__control_visibility_hidden,
+        .serp-item__thumb:not([src]) {
+            visibility: hidden
+        }
+
+        .spin2_position_center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            -webkit-animation: islands-spin2_position_center 1s infinite linear;
+            -moz-animation: islands-spin2_position_center 1s infinite linear;
+            animation: islands-spin2_position_center 1s infinite linear
+        }
+
+        @-webkit-keyframes islands-spin2_position_center {
+            from {
+                -webkit-transform: translate(-50%, -50%) rotate(0);
+                transform: translate(-50%, -50%) rotate(0)
+            }
+            to {
+                -webkit-transform: translate(-50%, -50%) rotate(360deg);
+                transform: translate(-50%, -50%) rotate(360deg)
+            }
+        }
+
+        @-moz-keyframes islands-spin2_position_center {
+            from {
+                -moz-transform: translate(-50%, -50%) rotate(0);
+                transform: translate(-50%, -50%) rotate(0)
+            }
+            to {
+                -moz-transform: translate(-50%, -50%) rotate(360deg);
+                transform: translate(-50%, -50%) rotate(360deg)
+            }
+        }
+
+        @keyframes islands-spin2_position_center {
+            from {
+                -webkit-transform: translate(-50%, -50%) rotate(0);
+                -moz-transform: translate(-50%, -50%) rotate(0);
+                transform: translate(-50%, -50%) rotate(0)
+            }
+            to {
+                -webkit-transform: translate(-50%, -50%) rotate(360deg);
+                -moz-transform: translate(-50%, -50%) rotate(360deg);
+                transform: translate(-50%, -50%) rotate(360deg)
+            }
+        }
+
+        .i-ua_platform_opera .spin2_position_center {
+            position: absolute
+        }
+
+        .serp-list_type_search {
+            margin-bottom: -8px;
+            margin-left: -8px;
+            visibility: hidden
+        }
+
+        .serp-item {
+            margin: 0 0 8px 8px;
+            display: inline-block;
+            vertical-align: bottom;
+            background: 0 0;
+            pointer-events: none
+        }
+
+        .cbir-panel,
+        .popup,
+        .serp-item__meta {
+            display: none
+        }
+
+        .tabs-navigation__tab {
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+            padding: 0 10px;
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #999 !important
+        }
+
+        .tabs-navigation__tab_selected_yes,
+        .tabs-navigation__tab_selected_yes:hover {
+            color: #000 !important
+        }
+
+        .tabs-navigation__tab_first_yes {
+            padding-left: 0 !important;
+            margin-left: 0 !important
+        }
+
+        .tabs-navigation__tab.link_focused_yes {
+            outline: 0 !important
+        }
+
+        .utilityfocus .tabs-navigation__tab.link_focused_yes:before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            content: '';
+            border-bottom: 3px solid #ffdb4d
+        }
+
+        .tabs-navigation__tab:hover {
+            color: #c00 !important
+        }
+
+        .paranja {
+            opacity: 0
+        }
+
+        .cbir-intent {
+            line-height: 30px;
+            position: absolute;
+            z-index: 10;
+            top: 1px;
+            display: none;
+            height: 30px;
+            padding: 0 10px 0 0;
+            border-right: 1px solid rgba(0, 0, 0, .1);
+            background: #fff
+        }
+
+        .cbir-intent .spin2_progress_yes {
+            display: inline-block;
+            margin: 0 10px;
+            vertical-align: middle
+        }
+
+        .cbir-intent_visibility_visible {
+            display: inline-block
+        }
+
+        .cbir-intent__thumb {
+            display: none;
+            overflow: hidden;
+            max-width: 60px;
+            height: 20px;
+            margin: 0 10px 0 8px;
+            vertical-align: middle
+        }
+
+        .cbir-intent__thumb_visibility_visible,
+        .cbir-intent__title {
+            display: inline-block
+        }
+
+        .cbir-intent__title {
+            vertical-align: middle;
+            font-size: 15px;
+            line-height: 30px;
+            margin-right: 10px
+        }
+
+        @media (max-width: 900px) {
+            .cbir-intent__title {
+                display: none
+            }
+        }
+
+        .button,
+        .button__text {
+            position: relative;
+            display: inline-block
+        }
+
+        .button {
+            overflow: visible;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -moz-user-focus: ignore;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            white-space: nowrap;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            border: 0;
+            border-radius: 0;
+            outline: 0;
+            background: 0 0;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation
+        }
+
+        .button_disabled_yes {
+            pointer-events: none;
+            cursor: default
+        }
+
+        .button::-moz-focus-inner {
+            padding: 0;
+            border: 0
+        }
+
+        .button__text {
+            resize: none;
+            pointer-events: none
+        }
+
+        .button_size_m {
+            font-size: 15px;
+            line-height: 32px
+        }
+
+        .button_size_m .button__text {
+            padding: 0 15px
+        }
+
+        .button_size_m .button__icon {
+            margin-right: 6px;
+            margin-left: -7px
+        }
+
+        .button_size_m.button_only-icon_yes .button__text {
+            padding: 0 8px
+        }
+
+        .button_size_m.button_only-icon_yes .button__icon {
+            margin-right: 0;
+            margin-left: 0
+        }
+
+        .button_size_m.button_arrow_down .button__text:after,
+        .button_size_m.button_arrow_up .button__text:after {
+            right: 12px
+        }
+
+        .button_size_m.button_arrow_down .button__text,
+        .button_size_m.button_arrow_up .button__text {
+            padding-right: 29px
+        }
+
+        .button_size_ws-head {
+            width: 88px;
+            font-size: 16px;
+            line-height: 36px
+        }
+
+        .button_size_ws-head .button__text {
+            margin-right: 9px;
+            padding-left: 5px
+        }
+
+        .button_size_ws-head .button__text:before {
+            top: -4px;
+            right: -9px;
+            border-width: 22px 0 22px 11px
+        }
+
+        .button_theme_pseudo {
+            z-index: 0;
+            color: #000;
+            background: 0 0
+        }
+
+        .button_theme_pseudo:before {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            content: '';
+            border: 1px solid;
+            border-color: rgba(0, 0, 0, .2);
+            border-radius: 3px;
+            background-color: transparent;
+            background-clip: padding-box;
+            -webkit-transition: .1s ease-out;
+            -moz-transition: .1s ease-out;
+            transition: .1s ease-out;
+            -webkit-transition-property: border-color, border-width, background-color;
+            -moz-transition-property: border-color, border-width, background-color;
+            transition-property: border-color, border-width, background-color
+        }
+
+        .utilityfocus .button_theme_pseudo.button_focused_yes:before {
+            border-width: 2px;
+            border-color: #ffdb4d
+        }
+
+        .button_theme_pseudo.button_pressed_yes:before {
+            background-color: rgba(0, 0, 0, .05)
+        }
+
+        .button_theme_pseudo.button_disabled_yes:before {
+            border-color: rgba(0, 0, 0, .08);
+            background-color: rgba(0, 0, 0, .08)
+        }
+
+        .button_theme_pseudo.button_disabled_yes .button__text {
+            opacity: .5
+        }
+
+        .button_theme_pseudo.button_hovered_yes:before {
+            border-color: rgba(0, 0, 0, .3)
+        }
+
+        .button_theme_websearch {
+            overflow: hidden;
+            font-family: Arial, sans-serif
+        }
+
+        .button_theme_websearch .button__text {
+            position: relative;
+            display: block;
+            color: #000;
+            border: 0 solid #ffdb4d;
+            background-color: #ffdb4d;
+            -webkit-transition: .1s ease-out;
+            -moz-transition: .1s ease-out;
+            transition: .1s ease-out;
+            -webkit-transition-property: border-color, background;
+            -moz-transition-property: border-color, background;
+            transition-property: border-color, background
+        }
+
+        .button_theme_websearch .button__text:before {
+            position: absolute;
+            width: 0;
+            height: 0;
+            content: '';
+            border-style: solid;
+            border-color: rgba(255, 219, 76, 0);
+            border-left-color: inherit;
+            -o-transform: rotate(360deg)
+        }
+
+        .button_theme_websearch.button_hovered_yes .button__text {
+            border-color: #ffd633;
+            background-color: #ffd633
+        }
+
+        .button_theme_websearch.button_pressed_yes .button__text {
+            border-color: #fc0;
+            background-color: #fc0
+        }
+
+        .i-ua_platform_opera .button_theme_websearch {
+            display: block
+        }
+
+        .i-ua_platform_opera .button_theme_websearch:active:hover .button__text {
+            top: -1px;
+            left: -1px
+        }
+
+        .search2 {
+            display: inline-table;
+            margin: 3px 0;
+            max-width: 638px
+        }
+
+        .search2__input > .input {
+            display: block
+        }
+
+        .search2__button,
+        .search2__input {
+            display: table-cell
+        }
+
+        .search2 .input__box,
+        .search2 .input_focused_yes .input__box {
+            box-shadow: none
+        }
+
+        .search2__input .input__control,
+        .search2__input .input__requery-hidden,
+        .search2__input .input__requery-input,
+        .search2__input .input__requery-visible,
+        .search2__input .input_theme_websearch.input_size_m {
+            font-size: 18px
+        }
+
+        .search2__input {
+            overflow: hidden;
+            width: 100%;
+            vertical-align: top
+        }
+
+        .search2__input .input__box-layout {
+            width: 100%;
+            border-collapse: collapse;
+            vertical-align: top
+        }
+
+        .search2__input .input__box-layout-cell {
+            padding: 0
+        }
+
+        .search2__input .input__box-layout-cell_pos_first {
+            width: 0
+        }
+
+        .search2__input .input__box-layout-cell_pos_last {
+            width: 100%
+        }
+
+        .search2_theme_websearch .search2__input {
+            width: 550px
+        }
+
+        .a11y-hidden {
+            position: absolute;
+            left: -32767px
+        }
+
+        .pane .a11y-hidden {
+            position: fixed
+        }
+
+        #advanced-search-itself,
+        #advanced-search-relocator,
+        .pane2,
+        .under-menu {
+            display: none
+        }
+
+        .cbir-icon_theme_black {
+            background-position: -99px -48px !important
+        }
+
+        .cbir-intent__close {
+            background-position: -99px -64px !important
+        }
+
+        .cbir-panel__close-icon {
+            background-position: -65px -71px !important
+        }
+
+        .complain2_icon-theme_outlined.complain2_color_black.complain2_layout_button .button2__icon,
+        .complain2_icon-theme_outlined.complain2_color_black.complain2_layout_icon .button2__icon {
+            background-position: -99px -32px !important
+        }
+
+        .disk-logo__icon.disk-logo__icon_theme_gray {
+            background-position: -30px 0 !important
+        }
+
+        .fullscreen-switcher .button2__icon.icon_fullscreen {
+            background-position: -43px -71px !important
+        }
+
+        .head-filter_type_family .head-filter__icon {
+            background-position: -32px -39px !important
+        }
+
+        .head-filter_type_moderate .head-filter__icon {
+            background-position: 0 -71px !important
+        }
+
+        .head-filter_type_unlimited .head-filter__icon {
+            background-position: -52px -39px !important
+        }
+
+        .icon_close_yes.icon_color_white {
+            background-position: -99px 0 !important
+        }
+
+        .icon_type_share.icon_color_black {
+            background-position: -99px -16px !important
+        }
+
+        .pane2__close_color_white .pane2__close-icon {
+            background-position: -21px -71px !important
+        }
+
+        .popup_filter_unlimited .popup__content-icon {
+            background-position: 0 0 !important
+        }
+
+        .similar__more-arrow {
+            background-position: -87px -71px !important
+        }
+
+        .slideshow-controls__action_state_play:after {
+            background-position: 0 -39px !important
+        }
+
+        .slideshow-controls__action_state_stop:after {
+            background-position: -67px 0 !important
+        }
+
+        .slideshow-controls__close:after {
+            background-position: -73px -39px !important
+        }
+    </style>
+    <noscript>
+        <link rel="stylesheet" href="//yastatic.net/images-islands/0x62aa3d406/pages-desktop/common/_common.post.css">
+    </noscript>
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@yandeximages">
+</head>
+
+<body class="b-page b-page_tld_com b-page_ajax_yes b-page_theme_normal b-page_mobile_no b-page_l10n_en b-page_type_index b-page_tablet_no b-page_has-fixed-tabs_yes b-page_show-tabs_yes b-page_spok_no b-page_relevance_no b-page_501px_yes i-global i-ua b-page__body i-cbir-controller i-cbir-initer i-keyrouter counter i-services i-device-info exp disk-controller disk-controller_unauthorized_yes i-bem"
+      data-bem='{"b-page":{"seo":{"shareTitle":"Yandex.Images","title":"Yandex.Images: search for images on the internet, search by image","metaTags":[{"tag":"meta","attrs":{"name":"keywords","content":"yandex images, image search, photo, photographs, search by image and photo"}},{"tag":"meta","attrs":{"name":"description","content":"Funny pictures, backgrounds for your dekstop, diagrams and illustrated instructions - answers to your questions in the form of images. Search by image and photo"}},""]},"serviceName":"Images"},"i-global":{"lang":"en","tld":"com","content-region":"com","click-host":"yandex.com/clck","passport-host":"https://passport.yandex.com","pass-host":"//pass.yandex.com","social-host":"//social.yandex.com","export-host":"https://export.yandex.com","login":"","lego-static-host":"https://yastatic.net/lego/2.10-142","pushbundleAjax":[],"id":"images","project":"images/desktop","uid":"","yandexuid":"6594891591520352337","retpath":"https://yandex.com/images/","serviceName":"Images","social-retpath":"https://yandex.com/images/static/lego/blocks/i-social/closer/i-social__closer.html","clck":"//yandex.com/clck/jclck","counterDebug":false,"serpid":"MceIBzJipckNvegYBHQMmQ","reqid":"1520352337858640-363501396325948915913531-man1-4085-IMG","query":"","searchInputText":"","page":"index","mobile":false,"tablet":false,"router":{"index":"/images/","search":"/images/search","static":"/images/static/","customize":"/images/customize","todayImageProxy":"/images/today"},"showRelevance":false,"isYandexNet":false,"isPumpkin":false,"expFlags":{"images_doge_ajax_direct_include_query":1,"images_big_thumbs":1,"images_thumb_hover_scale":1.3,"images_pane2_scrollable_info":1},"isSpok":false,"testId":["63207","68491","69131"],"nonce":"9632594891591353114085","metaReferrerContent":false,"lr":10590,"abuseLink":"https://yandex.com/search/abuse?sign=b1b57ebe736ce2e43fc23ad04bb7f294&amp;keyno=0","rimConfig":{"rim":{"host":null,"lang":"com","urlParams":{}},"thumb":{"hosts":null,"params":{"n":13},"preload":true}},"useDelegateCounters":true,"is500pxAvailable":true,"lags":{"thumb":400},"isPornoQuery":false},"i-ua":{},"i-cbir-initer":{},"i-keyrouter":{},"counter":{},"i-services":{"afisha":{"search":"/search?text=","params":"&amp;family=yes"},"auto":{"search":"/search?text=","params":"&amp;family=yes"},"images":{"search":"/search?text=","params":"&amp;lr=10590&amp;noreask=1&amp;family=yes","baseUrl":"//yandex.com/images/"},"maps":{"search":"/?text=","params":"&amp;family=yes"},"market":{"search":"/search.xml?text=","params":"&amp;cvredirect=2&amp;family=yes"},"music":{"search":"/#!/search?text=","params":"&amp;family=yes"},"news":{"search":"/yandsearch?text=","params":"&amp;rpt=nnews2&amp;grhow=clutop&amp;family=yes"},"search":{"search":"/search/?text=","params":"&amp;family=yes"},"slovari":{"search":"/","params":"&amp;family=yes"},"translate":{"search":"/?text=","params":"&amp;family=yes"},"video":{"search":"/search?text=","params":"&amp;family=yes&amp;where=all","baseUrl":"//yandex.com/video/"},"weather":{"search":"/search?request=","params":"&amp;family=yes"}},"i-device-info":{},"disk-controller":{"shouldShowDomik":true,"dirName":"My Yandex.Images"}}'>
+<script nonce="9632594891591353114085">window.Ya = window.Ya || {};
+var perf = window.performance || {}, navStart = Date.now();
+perf.timing && (navStart = perf.timing.navigationStart), Ya.PerfCounters = Ya.PerfCounters || {
+    __hasDeferred: !0,
+    __defRes: [],
+    __defTimes: [],
+    __cacheEvents: [],
+    getTime: window.performance && window.performance.now ? function () {
+        return window.performance.now()
+    } : function () {
+        return Date.now() - navStart
+    },
+    sendTimeMark: function (e, n) {
+        "undefined" == typeof n && (n = this.getTime()), this.__defTimes.push([e, n])
+    },
+    sendResTiming: function (e, n) {
+        this.__defRes.push([e, n])
+    },
+    addCacheEvent: function (e, n) {
+        this.__cacheEvents.push([e, n])
+    }
+};</script>
+<script nonce="9632594891591353114085">Ya.PerfCounters.commonVars = ["287=10590", "143=1119.277.629"]</script>
+<div class="header header_fixed_yes header_filters_light layout layout_type_serp i-bem"
+     data-bem='{"header":{"filtersAutoopen":""}}'
+     role="banner">
+    <div class="header__wrapper">
+        <div class="header__main">
+            <div class="layout__col layout__col_size_2 header__logo header__logo_lang_en">
+                <a class="logo logo_type_link logo_name_ys-en-87x35" href="//yandex.com/" tabindex="-1"
+                   data-counter="[&quot;w&quot;,&quot;8.228.175.179&quot;]">Yandex</a>
+            </div>
+            <div class="layout__col header__search2">
+                <form class="search2 search2_theme_websearch search2_cbir_yes suggest2-form suggest2-counter suggest2-form__node i-bem"
+                      data-bem='{"suggest2-form":{"popupName":"popup2"},"suggest2-counter":{"service":"images_com","preventSubmit":false,"suggestReqID":true,"host":"//yandex.ru","path":"/clck/jclck/","params":{"dtype":"stred","pid":0,"cid":2873}}}'
+                      role="search" action="/images/search">
+                    <div class="search2__input">
+                            <span class="input input_size_ws-head input_theme_websearch input_autofocus_yes input_indent_small input_table-layout_yes input_cbir_yes input_found_yes suggest2-form__input i-bem"
+                                  data-bem='{"input":{"shortcut":true,"live":false}}'>
+                                <div class="input__requery"></div>
+                                <span class="input__box">
+                                    <table class="input__box-layout">
+                                        <td class="input__box-layout-cell">
+                                            <div class="cbir-intent input__cbir i-bem"
+                                                 data-bem='{"cbir-intent":{"texts":{"loading":"Loading image","loaded":"Uploaded image"}}}'>
+                                                <div class="spin2 spin2_size_xxs cbir-intent__spinner i-bem"
+                                                     data-bem='{"spin2":{}}'></div>
+                                                <img class="cbir-intent__thumb cbir-intent__thumb_visibility_visible"
+                                                     src="" alt="Uploaded image">
+                                                <span class="cbir-intent__title">Uploaded image</span>
+                                                <span class="cbir-intent__close" role="button" aria-label="Close"
+                                                      tab-index="4"></span>
+                                            </div>
+                                        </td>
+                                        <td class="input__box-layout-cell input__box-layout-cell_pos_last">
+                                            <span class="input__clear" unselectable="on"> </span>
+                                            <input class="input__control" id="uniq152034329524771658" name="text"
+                                                   value=""
+                                                   aria-labelledby="labeluniq152034329524771658 hintuniq152034329524771658"
+                                                   type="search" accesskey="s" maxlength="400">
+                                            <div class="input__cbir-button">
+                                                <button class="button2 button2_theme_clear button2_size_m button2_view_classic i-bem"
+                                                        data-bem='{"button2":{}}' type="button" autocomplete="off"
+                                                        tabindex="0" aria-label="Image search">
+                                                    <span class="icon icon_size_m icon_type_input-cbir button2__icon"></span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </table>
+                                </span>
+                            </span>
+                        <div class="popup2 popup2_autoclosable_yes popup2_theme_clear popup2_fixed_yes suggest2 suggest2_search2_yes suggest2_theme_large suggest2_adaptive_yes suggest2_group_label suggest2_type_advanced suggest2-detect i-bem"
+                             data-bem='{"popup2":{"mainOffset":20,"directions":["bottom-left"]},"suggest2":{"submitBySelect":true,"requestOnEmptyInput":true,"url":"//yandex.com/suggest-images/suggest-ya.cgi","data":{"html":1,"srv":"images_com","yu":"6594891591520352337","lr":10590,"uil":"en","latin":1,"nl":1,"v":4,"n":10,"portal":1,"fact":1,"icon":1,"hl":1,"wiz":"TrWth","bemjson":1}},"suggest2-detect":{}}'></div>
+                    </div>
+                    <div class="search2__button">
+                        <button class="button button_size_ws-head button_theme_websearch suggest2-form__button i-bem"
+                                data-bem='{"button":{}}'
+                                tabindex="-1" type="submit" autocomplete="off">
+                            <span class="button__text">Search</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="layout__col header__nav">
+                <div class="disk-logo tooltip-owner i-bem" data-bem='{"disk-logo":{},"tooltip-owner":{}}'>
+                    <button class="button2 button2_theme_clear button2_size_s button2_view_classic disk-logo__button i-bem"
+                            data-bem='{"button2":{}}' type="button" autocomplete="off" value="My images" tabindex="0">
+                        <div class="disk-logo__icon disk-logo__icon_theme_color disk-logo__icon_visibility_hidden"></div>
+                        <div class="disk-logo__icon disk-logo__icon_theme_gray"></div>
+                        <div class="popup popup_position_fixed popup_theme_ffffff popup_autoclosable_yes popup_adaptive_yes popup_animate_yes disk-logo__popup">
+                            <div class="popup__under"></div>
+                            <i class="popup__tail"></i>
+                            <div class="popup__content">
+                                <div class="popup__title">My images</div>
+                                <div class="popup__description">Images are saved
+                                    <br> in a special folder
+                                    <br> on Yandex.Disk.
+                                </div>
+                            </div>
+                            <i class="popup__close"></i>
+                        </div>
+                        <div class="popup2 popup2_target_anchor popup2_autoclosable_no popup2_view_classic popup2_theme_normal tooltip tooltip_theme_light tooltip_view_classic i-bem"
+                             data-bem='{"popup2":{"mainOffset":0,"directions":["bottom-center","left-center"]}}'>
+                            <div class="tooltip__content">My images</div>
+                        </div>
+                    </button>
+                </div>
+                <div class="dropdown-menu dropdown-menu_size_m dropdown-menu_theme_ffffff head-filter head-filter_type_family head-filter_color_no head-filter_disabled_yes header__family tooltip-owner i-bem"
+                     data-bem='{"dropdown-menu":{},"head-filter":{"family":2,"selected":"family","warning":null,"filters":[{"value":2,"type":"family","name":"Family","title":"Family","tooltip":"Family search"},{"value":1,"type":"moderate","name":"Moderate","title":"Moderate","tooltip":"Moderate search"},{"value":0,"type":"unlimited","name":"Unsecure","title":"Unsecure","info":"Filtering disabled.<br />The moderate filter will be enabled<br />automatically in 2 hours.","tooltip":"Unsecure search"}],"retpath":"https://yandex.com/images/static/blank.html","saveUrl":"https://yandex.com/images/customize","needRefresh":true},"header__family":{},"tooltip-owner":{}}'>
+                    <button class="button2 button2_theme_clear button2_size_s button2_disabled_yes button2_view_classic i-bem"
+                            data-bem='{"button2":{"_tabindex":"0"}}' type="button" autocomplete="off" disabled
+                            aria-disabled="true"
+                            aria-label="Type of safe search">
+                        <span class="head-filter__icon"></span>
+                    </button>
+                    <div class="popup2 popup2_target_anchor popup2_autoclosable_no popup2_view_classic popup2_theme_normal tooltip tooltip_theme_light tooltip_view_classic head-filter__tooltip i-bem"
+                         data-bem='{"popup2":{"mainOffset":0,"directions":["bottom-center","left-center"]}}'>
+                        <div class="tooltip__content">Family search</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__under">
+            <div id="tabs-navigation-placeholder"></div>
+            <div class="header__slide header__slide_type_advanced">
+                <div class="advanced-search__placeholder" id="advanced-search-placeholder"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="presearch-spinner spin2 spin2_size_m spin2_progress_yes spin2_position_center"></div>
+<script nonce="9632594891591353114085">window.Ya.__inline_params__ = JSON.parse('{\u0022url\u0022:\u0022\u002f\u002fyastatic.net\u002fimages\u002dislands\u002f0x62aa3d406\u002fpages\u002ddesktop\u002fcommon\u002f_common.post.css\u0022,\u0022isInternal\u0022:false}');
+window.Ya.callWithParams(function (e) {
+    var t = document.createElement("link");
+    t.rel = "stylesheet", t.type = "text/css", t.href = e.url, e.nonBlockingResource && (t.rel = "alternate stylesheet", t.title = "postcss", window.Ya.onPostCssReady = function () {
+        "stylesheet" !== t.rel && (t.removeAttribute("title"), t.rel = "stylesheet")
+    }), t.addEventListener("load", function () {
+        window.Ya.PerfCounters.sendTimeMark("2540"), e.nonBlockingResource && window.Ya.onPostCssReady()
+    }), document.head.appendChild(t)
+});</script>
+<div class="cbir-panel i-bem" data-bem='{"cbir-panel":{}}'>
+    <div class="cbir-panel__table">
+        <div class="cbir-panel__tabs">
+            <div class="cbir-panel__wrap">
+                <form class="cbir-panel__dragzone">
+                    <div class="cbir-panel__upload-box">
+                            <span class="cbir-panel__dragMessage">
+                                <button class="cbir-panel__upload-link">Select a file</button>
+                                <span class="cbir-panel__drag-label">or drag it here</span>
+                            </span>
+                    </div>
+                    <input class="cbir-panel__file-input" type="file" accept="image/*" name="upfile">
+                </form>
+                <form class="cbir-panel__input">
+                        <span class="input input_size_m input_autofocus_yes input_theme_normal input_type_cbir i-bem"
+                              data-bem='{"input":{"live":true}}'>
+                            <label class="input__hint input__hint_visibility_visible" id="hintuniq152034329524771659"
+                                   for="uniq152034329524771659"
+                                   aria-hidden="true">Enter image address</label>
+                            <span class="input__box">
+                                <span class="input__clear" unselectable="on"> </span>
+                                <input class="input__control" id="uniq152034329524771659" name="cbir-url"
+                                       placeholder="Enter image address"
+                                       autocomplete="off"
+                                       aria-labelledby="labeluniq152034329524771659 hintuniq152034329524771659">
+                            </span>
+                        </span>
+                    <button class="button button_size_m button_theme_normal button_side_right button_type_cbir button_disabled_yes cbir-panel__search-button i-bem"
+                            data-bem='{"button":{}}' type="submit" autocomplete="off" name="cbir-submit" disabled>
+                        <span class="button__text">Search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="cbir-panel__close" role="button" aria-label="Закрыть" tabindex="0">
+            <div class="cbir-panel__close-icon"></div>
+        </div>
+        <div class="cbir-panel__error"></div>
+    </div>
+</div>
+<div class="cbir-error i-bem" data-bem='{"cbir-error":{"searchError":false}}'>
+    <div class="popup popup_autoclosable_yes popup_watch-scroll_no popup_position_fixed popup_theme_ffffff popup_adaptive_yes popup_animate_yes cbir-error__popup cbir-error__popup_type_user">
+        <div class="popup__under"></div>
+        <i class="popup__tail"></i>
+        <div class="popup__content">
+            <div class="cbir-error__mark">!</div>
+            <div class="popup__error-text-wrap">
+                <span class="popup__error-text"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<script nonce="9632594891591353114085">window.Ya.__inline_params__ = JSON.parse('{\u0022text\u0022:\u0022\u0022}');
+window.Ya.callWithParams(function (t) {
+    for (var e = document.querySelectorAll(".search2__input .input__control[name=text]"), n = 0, a = e.length; a > n; n++) e[n].value = t.text
+});
+!function () {
+    window.Ya = window.Ya || {}, window.Ya.bemReadyCallbacks = [], window.Ya.addBEMReadyListener = function (a) {
+        "function" == typeof a && window.Ya.bemReadyCallbacks.push(a)
+    }
+}();
+!function (e) {
+    e.matches = e.matches || e.webkitMatchesSelector || e.mozMatchesSelector || e.msMatchesSelector || e.oMatchesSelector, e.closest = e.closest || function (e) {
+        for (var t = this; t;) {
+            if (t.matches(e)) return t;
+            t = t.parentElement
+        }
+        return null
+    }
+}(Element.prototype);
+!function () {
+    window.Ya.Images.onThumbError = function (e, r) {
+        e.onerror = "";
+        var o = e.closest(".wizard-wrapper__item") || e.closest(".carousel__item"),
+            s = o.closest(".wizard-wrapper__list") || o.closest(".carousel__list");
+        return s.removeChild(o), s.childElementCount < r && (s.closest(".related").style.display = "none"), window.Ya.Images.errcnt(e, 72765), !0
+    }
+}();
+!function () {
+    function r(r) {
+        var e, t = r.getAttribute("data-error-handler");
+        return "string" == typeof t ? (e = t.split(":"), {name: e[0], param: e[1]}) : void 0
+    }
+
+    function e(e) {
+        if (e && "function" == typeof e.getAttribute) {
+            var n = r(e);
+            n && n.name && t[n.name] && t[n.name].apply(e, [n.param])
+        }
+    }
+
+    var t = {
+        wizardThumbError: function (r) {
+            return window.Ya.Images.onThumbError(this, Number(r))
+        }, serpItemError: function () {
+            this.removeAttribute("data-error-handler"), window.Ya.Images.errcnt(this, 71729);
+            var r = this.parentNode.parentNode.parentNode;
+            r.parentNode.removeChild(r)
+        }, touchSerpItemError: function () {
+            this.removeAttribute("data-error-handler"), window.Ya.Images.errcnt(this, 72762);
+            var r = this.parentNode.parentNode;
+            r.parentNode.removeChild(r)
+        }
+    };
+    window.addEventListener("error", function (r) {
+        e(r.target)
+    }, !0)
+}();
+window.Ya.__inline_params__ = JSON.parse('{\u0022rowHeight\u0022:190}');
+window.Ya.callWithParams(function (a) {
+    window.Ya.Images.rowHeight = a.rowHeight
+});</script>
+<div class="i-global-post i-bem"
+     data-bem='{"i-global-post":{"isCommercialEnabled":false,"isPornoQuery":false,"rimConfig":{"rim":{"host":null,"lang":"com","urlParams":{}},"thumb":{"hosts":null,"params":{"n":13},"preload":true}}}}'></div>
+<form class="advanced-search advanced-search_light_yes i-bem"
+      data-bem='{"advanced-search":{"yandexuid":"6594891591520352337"}}'
+      id="advanced-search-itself">
+    <div class="dropdown dropdown_advanced_yes dropdown_custom-size_yes dropdown_action_closed custom-size i-bem"
+         data-bem='{"dropdown":{"name":"isize","defaultValue":""},"custom-size":{"values":{"iw":"","ih":"","isize":"eq"}}}'>
+        <button class="button button_size_s button_theme_light button_arrow_down dropdown__switcher i-bem"
+                data-bem='{"button":{}}'
+                type="button" autocomplete="off">
+            <span class="button__text">Size</span>
+        </button>
+        <div class="popup popup_watch-scroll_no popup_position_fixed popup_theme_ffffff popup_autoclosable_yes popup_adaptive_yes popup_animate_yes dropdown__popup i-bem"
+             data-bem='{"popup":{"directions":"bottom-left-left","tail":{"offset":{"left":5}}}}'>
+            <div class="popup__under"></div>
+            <i class="popup__tail"></i>
+            <div class="popup__content">
+                    <span class="radiobox radiobox_size_s radiobox_theme_normal radiobox_flow_vertical radiobox_view_classic i-bem"
+                          data-bem='{"radiobox":{"live":false}}'>
+                        <label class="radiobox__radio radiobox__radio_checked_yes" for="uniq152034329524771660">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771660" type="radio" name="isize"
+                                       value=""
+                                       checked>
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Any size</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio" for="uniq152034329524771661">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771661" type="radio" name="isize"
+                                       value="large">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Large</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio" for="uniq152034329524771662">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771662" type="radio" name="isize"
+                                       value="medium">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Medium</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio" for="uniq152034329524771663">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771663" type="radio" name="isize"
+                                       value="small">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Small</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio radiobox__radio_hidden_yes" for="uniq152034329524771664">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771664" type="radio" name="isize"
+                                       value="custom">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text"></span>
+                            </span>
+                        </label>
+                        <div class="advanced-search__delimiter"></div>
+                        <div class="custom-size__sizes">
+                            <span class="input input_size_s input_theme_normal i-bem"
+                                  data-bem='{"input":{"live":true}}'>
+                                <label class="input__hint input__hint_visibility_visible"
+                                       id="hintuniq152034329524771665" for="uniq152034329524771665"
+                                       aria-hidden="true">1366</label>
+                                <span class="input__box">
+                                    <span class="input__clear" unselectable="on"> </span>
+                                    <input class="input__control dropdown__size-input" id="uniq152034329524771665"
+                                           name="iw" placeholder="1366" value="" autocomplete="off"
+                                           aria-labelledby="labeluniq152034329524771665 hintuniq152034329524771665">
+                                </span>
+                            </span>
+                            <div class="custom-size__x">×</div>
+                            <span class="input input_size_s input_theme_normal i-bem"
+                                  data-bem='{"input":{"live":true}}'>
+                                <label class="input__hint input__hint_visibility_visible"
+                                       id="hintuniq152034329524771666" for="uniq152034329524771666"
+                                       aria-hidden="true">768</label>
+                                <span class="input__box">
+                                    <span class="input__clear" unselectable="on"> </span>
+                                    <input class="input__control dropdown__size-input" id="uniq152034329524771666"
+                                           name="ih" placeholder="768" value="" autocomplete="off"
+                                           aria-labelledby="labeluniq152034329524771666 hintuniq152034329524771666">
+                                </span>
+                            </span>
+                            <button class="button button_theme_normal button_size_s custom-size__button i-bem"
+                                    data-bem='{"button":{}}'
+                                    type="button" autocomplete="off">
+                                <span class="button__text">OK</span>
+                            </button>
+                            <div class="custom-size__message custom-size__message_hidden_yes">Images size incorrectly specified.</div>
+                        </div>
+                    </span>
+            </div>
+        </div>
+    </div>
+    <div class="dropdown dropdown_advanced_yes dropdown_action_closed i-bem"
+         data-bem='{"dropdown":{"name":"iorient","defaultValue":""}}'>
+        <button class="button button_size_s button_theme_light button_arrow_down dropdown__switcher i-bem"
+                data-bem='{"button":{}}'
+                type="button" autocomplete="off">
+            <span class="button__text">Orientation</span>
+        </button>
+        <div class="popup popup_watch-scroll_no popup_position_fixed popup_theme_ffffff popup_autoclosable_yes popup_adaptive_yes popup_animate_yes dropdown__popup i-bem"
+             data-bem='{"popup":{"directions":"bottom-left-left","tail":{"offset":{"left":5}}}}'>
+            <div class="popup__under"></div>
+            <i class="popup__tail"></i>
+            <div class="popup__content">
+                    <span class="radiobox radiobox_size_s radiobox_theme_normal radiobox_flow_vertical radiobox_view_classic i-bem"
+                          data-bem='{"radiobox":{"live":false}}'>
+                        <label class="radiobox__radio radiobox__radio_checked_yes" for="uniq152034329524771667">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771667" type="radio" name="iorient"
+                                       value=""
+                                       checked>
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Any orientation</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio" for="uniq152034329524771668">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771668" type="radio" name="iorient"
+                                       value="horizontal">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Landscape</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio" for="uniq152034329524771669">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771669" type="radio" name="iorient"
+                                       value="vertical">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Portrait</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio" for="uniq152034329524771670">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771670" type="radio" name="iorient"
+                                       value="square">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Square</span>
+                            </span>
+                        </label>
+                    </span>
+            </div>
+        </div>
+    </div>
+    <div class="dropdown dropdown_advanced_yes dropdown_action_closed i-bem"
+         data-bem='{"dropdown":{"name":"type","defaultValue":""}}'>
+        <button class="button button_size_s button_theme_light button_arrow_down dropdown__switcher i-bem"
+                data-bem='{"button":{}}'
+                type="button" autocomplete="off">
+            <span class="button__text">Type</span>
+        </button>
+        <div class="popup popup_watch-scroll_no popup_position_fixed popup_theme_ffffff popup_autoclosable_yes popup_adaptive_yes popup_animate_yes dropdown__popup i-bem"
+             data-bem='{"popup":{"directions":"bottom-left-left","tail":{"offset":{"left":5}}}}'>
+            <div class="popup__under"></div>
+            <i class="popup__tail"></i>
+            <div class="popup__content">
+                    <span class="radiobox radiobox_size_s radiobox_theme_normal radiobox_flow_vertical radiobox_view_classic i-bem"
+                          data-bem='{"radiobox":{"live":false}}'>
+                        <label class="radiobox__radio radiobox__radio_checked_yes" for="uniq152034329524771671">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771671" type="radio" name="type"
+                                       value=""
+                                       checked>
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Any type</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio" for="uniq152034329524771672">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771672" type="radio" name="type"
+                                       value="photo">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Photo</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio" for="uniq152034329524771673">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771673" type="radio" name="type"
+                                       value="clipart">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">With white background</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio" for="uniq152034329524771674">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771674" type="radio" name="type"
+                                       value="lineart">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Drawings</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio" for="uniq152034329524771675">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771675" type="radio" name="type"
+                                       value="face">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">People</span>
+                            </span>
+                        </label>
+                    </span>
+            </div>
+        </div>
+    </div>
+    <div class="dropdown dropdown_advanced_yes dropdown_action_closed i-bem"
+         data-bem='{"dropdown":{"name":"icolor","defaultValue":""}}'>
+        <button class="button button_size_s button_theme_light button_arrow_down dropdown__switcher filter-color i-bem"
+                data-bem='{"button":{}}'
+                type="button" autocomplete="off">
+            <span class="button__text">Color</span>
+        </button>
+        <div class="popup popup_watch-scroll_no popup_position_fixed popup_theme_ffffff popup_autoclosable_yes popup_adaptive_yes popup_animate_yes dropdown__popup i-bem"
+             data-bem='{"popup":{"directions":"bottom-left-left","tail":{"offset":{"left":5}}}}'>
+            <div class="popup__under"></div>
+            <i class="popup__tail"></i>
+            <div class="popup__content">
+                    <span class="radiobox radiobox_size_s radiobox_theme_normal radiobox_flow_vertical radiobox_view_classic i-bem"
+                          data-bem='{"radiobox":{"live":false}}'>
+                        <label class="radiobox__radio radiobox__radio_checked_yes" for="uniq152034329524771676">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771676" type="radio" name="icolor"
+                                       value=""
+                                       checked>
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Any color</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio" for="uniq152034329524771677">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771677" type="radio" name="icolor"
+                                       value="color">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Color images only</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio" for="uniq152034329524771678">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771678" type="radio" name="icolor"
+                                       value="gray">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Black and white</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio radiobox__radio_hidden_yes" for="uniq152034329524771679">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771679" type="radio" name="icolor"
+                                       value="custom">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text"></span>
+                            </span>
+                        </label>
+                        <div class="advanced-search__delimiter"></div>
+                        <label class="radiobox__radio radiobox__radio_type_color radiobox__radio_color_red"
+                               for="uniq152034329524771680">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771680" type="radio" name="icolor"
+                                       value="red">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Red</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio radiobox__radio_type_color radiobox__radio_color_orange"
+                               for="uniq152034329524771681">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771681" type="radio" name="icolor"
+                                       value="orange">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Orange</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio radiobox__radio_type_color radiobox__radio_color_yellow"
+                               for="uniq152034329524771682">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771682" type="radio" name="icolor"
+                                       value="yellow">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Yellow</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio radiobox__radio_type_color radiobox__radio_color_cyan"
+                               for="uniq152034329524771683">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771683" type="radio" name="icolor"
+                                       value="cyan">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Light blue</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio radiobox__radio_type_color radiobox__radio_color_green"
+                               for="uniq152034329524771684">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771684" type="radio" name="icolor"
+                                       value="green">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Green</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio radiobox__radio_type_color radiobox__radio_color_blue"
+                               for="uniq152034329524771685">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771685" type="radio" name="icolor"
+                                       value="blue">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Dark blue</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio radiobox__radio_type_color radiobox__radio_color_violet"
+                               for="uniq152034329524771686">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771686" type="radio" name="icolor"
+                                       value="violet">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Violet</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio radiobox__radio_type_color radiobox__radio_color_white"
+                               for="uniq152034329524771687">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771687" type="radio" name="icolor"
+                                       value="white">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">White</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio radiobox__radio_type_color radiobox__radio_color_black"
+                               for="uniq152034329524771688">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771688" type="radio" name="icolor"
+                                       value="black">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Black</span>
+                            </span>
+                        </label>
+                    </span>
+            </div>
+        </div>
+    </div>
+    <div class="dropdown dropdown_advanced_yes dropdown_action_closed i-bem"
+         data-bem='{"dropdown":{"name":"itype","defaultValue":""}}'>
+        <button class="button button_size_s button_theme_light button_arrow_down dropdown__switcher i-bem"
+                data-bem='{"button":{}}'
+                type="button" autocomplete="off">
+            <span class="button__text">Format</span>
+        </button>
+        <div class="popup popup_watch-scroll_no popup_position_fixed popup_theme_ffffff popup_autoclosable_yes popup_adaptive_yes popup_animate_yes dropdown__popup i-bem"
+             data-bem='{"popup":{"directions":"bottom-left-left","tail":{"offset":{"left":5}}}}'>
+            <div class="popup__under"></div>
+            <i class="popup__tail"></i>
+            <div class="popup__content">
+                    <span class="radiobox radiobox_size_s radiobox_theme_normal radiobox_flow_vertical radiobox_view_classic i-bem"
+                          data-bem='{"radiobox":{"live":false}}'>
+                        <label class="radiobox__radio radiobox__radio_checked_yes" for="uniq152034329524771689">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771689" type="radio" name="itype"
+                                       value=""
+                                       checked>
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">Any format</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio" for="uniq152034329524771690">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771690" type="radio" name="itype"
+                                       value="jpg">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">JPEG</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio" for="uniq152034329524771691">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771691" type="radio" name="itype"
+                                       value="png">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">PNG</span>
+                            </span>
+                        </label>
+                        <label class="radiobox__radio" for="uniq152034329524771692">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771692" type="radio" name="itype"
+                                       value="gifan">
+                            </span>
+                            <span class="radiobox__text">
+                                <span class="dropdown__text">GIF</span>
+                            </span>
+                        </label>
+                    </span>
+            </div>
+        </div>
+    </div>
+    <label class="check-button check-button_theme_light check-button_advanced_yes check-button_size_s check-button_freshness_yes advanced-search__extra i-bem"
+           data-bem='{"check-button":{"name":"ifreshness","defaultValue":"","values":{"recent":"7D"},"live":false}}'
+           for="uniq152034329524771693">
+        <input class="check-button__control" type="checkbox" value="Recent" id="uniq152034329524771693" role="button"
+               aria-labelledby="textuniq152034329524771693"
+               aria-pressed="false">
+        <span class="check-button__text" id="textuniq152034329524771693">Recent</span>
+    </label>
+    <label class="check-button check-button_theme_light check-button_advanced_yes check-button_size_s check-button_wallpaper_yes check-button_state_three wallpaper advanced-search__extra i-bem"
+           data-bem='{"check-button":{"name":"isize","defaultValue":"","values":{"isize":"wallpaper","wp":""},"state":{"value":"off","field":"wp"},"live":false},"wallpaper":{}}'
+           for="uniq152034329524771694">
+        <input class="check-button__control" type="checkbox" value="Wallpaper" id="uniq152034329524771694" role="button"
+               aria-labelledby="textuniq152034329524771694" aria-pressed="false">
+        <span class="check-button__text" id="textuniq152034329524771694">Wallpaper</span>
+    </label>
+    <div class="custom-site advanced-search__extra i-bem" data-bem='{"custom-site":{"label":"On site"}}'>
+        <label class="check-button check-button_theme_light check-button_site_yes check-button_size_s i-bem"
+               data-bem='{"check-button":{"live":false}}'
+               for="uniq152034329524771695">
+            <input class="check-button__control" type="checkbox" name="site" value=" " id="uniq152034329524771695"
+                   role="button"
+                   aria-labelledby="textuniq152034329524771695" aria-pressed="false">
+            <span class="check-button__text" id="textuniq152034329524771695">On site</span>
+        </label>
+        <div class="modal modal_theme_normal modal_autoclosable_yes popup2 popup2_autoclosable_yes custom-site__modal i-bem"
+             data-bem='{"modal":{},"popup2":{"zIndexGroupLevel":20}}'>
+            <div class="modal__table">
+                <div class="modal__cell">
+                    <div class="modal__content">
+                        <div class="custom-site__modal-title">Search for images on site</div>
+                        <span class="input input_size_m input_theme_normal custom-site__input i-bem"
+                              data-bem='{"input":{"live":true}}'>
+                                <label class="input__hint input__hint_visibility_visible"
+                                       id="hintuniq152034329524771696" for="uniq152034329524771696"
+                                       aria-hidden="true">Site address</label>
+                                <span class="input__box">
+                                    <span class="input__clear" unselectable="on"> </span>
+                                    <input class="input__control" id="uniq152034329524771696" name=""
+                                           placeholder="Site address"
+                                           autocomplete="off"
+                                           aria-labelledby="labeluniq152034329524771696 hintuniq152034329524771696">
+                                </span>
+                            </span>
+                        <button class="button2 button2_theme_pseudo button2_size_m button2_view_classic custom-site__cancel i-bem"
+                                data-bem='{"button2":{}}' type="button" autocomplete="off" tabindex="0">
+                            <span class="button2__text">Cancel</span>
+                        </button>
+                        <button class="button2 button2_theme_action button2_size_m button2_type_submit button2_view_classic custom-site__search i-bem"
+                                data-bem='{"button2":{}}' type="submit" autocomplete="off" tabindex="0">
+                            <span class="button2__text">Search</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dropdown2 dropdown2_theme_normal dropdown2_switcher_button dropdown2_has-tick_yes advanced-search__more i-bem"
+         data-bem='{"dropdown2":{}}'>
+        <button class="button button_size_s button_theme_light button_arrow_down advanced-search__more-button i-bem"
+                data-bem='{"button":{}}'
+                type="button" autocomplete="off">
+            <span class="button__text">More</span>
+        </button>
+        <div class="popup2 popup2_theme_normal popup2_autoclosable_yes popup2_target_anchor i-bem"
+             data-bem='{"popup2":{}}'>
+            <ul class="advanced-search__more-list">
+                <li class="advanced-search__more-item advanced-search__more-item_commercial_yes" role="button">
+                    <div class="advanced-search__more-item-text">For sale</div>
+                </li>
+                <li class="advanced-search__more-item advanced-search__more-item_freshness_yes" role="button">
+                    <div class="advanced-search__more-item-text">Recent</div>
+                </li>
+                <li class="advanced-search__more-item advanced-search__more-item_wallpaper_yes" role="button">
+                    <div class="advanced-search__more-item-text">Wallpaper</div>
+                </li>
+                <li class="advanced-search__more-item advanced-search__more-item_site_yes" role="button">
+                    <div class="advanced-search__more-item-text advanced-search__more-item-text_type_default advanced-search__more-item-text_visibility_visible">
+                        On site
+                    </div>
+                    <div class="advanced-search__more-item-text advanced-search__more-item-text_type_custom advanced-search__more-item-text_visibility_hidden"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <button class="button button_size_s button_theme_light advanced-search__action advanced-search__action_type_reset advanced-search__action_hidden_yes i-bem"
+            data-bem='{"button":{}}' type="button" autocomplete="off">
+        <span class="button__text">Reset</span>
+    </button>
+    <script nonce="9632594891591353114085" id="advanced-search-relocator">(function () {
+        var t, e, n, r = document.getElementById.bind(document), i = r("advanced-search-placeholder");
+        i && (t = r("advanced-search-itself"), e = r("advanced-search-relocator"), n = document.getElementsByClassName("slide_type_advanced")[0], t.removeChild(e), i.parentNode.replaceChild(t, i), t.id = "advanced-search-placeholder", n && (n.style.display = "block"))
+    })();</script>
+</form>
+<div class="serp-user serp-user_type_enter serp-user_hidden header__user i-bem"
+     data-bem='{"serp-user":{"origin":"images_head_auth"}}'>
+    <a class="link serp-user__registration-link i-bem" data-bem='{"link":{}}' tabindex="0"
+       href="https://passport.yandex.com/registration?retpath=https%3A%2F%2Fyandex.com%2Fimages%2F&amp;origin=images_head_auth"
+       data-counter="[&quot;w&quot;,&quot;175.290.727&quot;]">Registration</a>
+    <a class="button2 button2_type_link button2_size_m button2_theme_action button2_view_classic serp-user__login-link i-bem"
+       data-bem='{"button2":{}}' tabindex="0" data-counter="[&quot;w&quot;,&quot;175.290.290&quot;]"
+       href="https://passport.yandex.com/auth?retpath=https%3A%2F%2Fyandex.com%2Fimages%2F&amp;origin=images_head_auth&amp;login%5B%5D=">
+        <span class="button2__text">Log in</span>
+    </a>
+    <script nonce="9632594891591353114085">!function () {
+        var e = document.querySelector(".serp-user"), r = document.querySelector(".header__nav");
+        e && (r && r.appendChild(e), e.classList.remove("serp-user_hidden"))
+    }();</script>
+</div>
+<link rel="stylesheet" href="https://yastatic.net/images-islands/_/AARP5hedLVLu7idkvoaNGlrOdeM.css">
+<div class="page-layout page-layout_page_index page-layout_layout_serp serp-controller serp-controller_infinite_yes serp-controller_navigation_yes serp-controller_complain_yes serp-controller_prefetch_yes serp-controller_height_full navigation-controller pane2-controller pane2-controller_crop_yes pane2-controller_scrollable-info_yes pane2-controller_preload_yes trimmer-controller incut-controller cbir-counter serp-counter i-bem"
+     data-bem='{"serp-controller":{"count":5,"mods":{"infinite":"yes","navigation":"yes","complain":"yes","prefetch":"yes","height":"full"},"prevPageUrl":"","nextPageUrl":"","item":{"selected":""},"hoverTime":10000,"lastPage":0},"navigation-controller":{},"pane2-controller":{"item":{"selected":""},"batchPreloadCount":5},"incut-controller":{},"cbir-counter":{},"serp-counter":{}}'>
+    <div class="page-layout__column page-layout__column_type_content">
+        <div class="page-layout__content-wrapper b-page__content" role="main">
+            <div class="tabs-navigation i-bem" data-bem='{"tabs-navigation":{}}' id="tabs-navigation-itself">
+                <div class="tabs-navigation__content">
+                    <a class="link link_theme_normal tabs-navigation__tab tabs-navigation__tab_first_yes i-bem"
+                       data-bem='{"link":{}}'
+                       rel="noopener" target="_blank" href="https://yandex.com/?family=yes"
+                       data-counter="[&quot;w&quot;,&quot;8.228.208.153&quot;]">Web</a>
+                    <a class="link link_theme_normal link_ajax_yes link_disabled_yes tabs-navigation__tab tabs-navigation__tab_selected_yes i-bem"
+                       data-bem='{"link":{"_tabindex":"0","_url":"/images/"}}' target="" aria-disabled="true"
+                       data-counter="[&quot;w&quot;,&quot;8.228.208.277&quot;]">Images</a>
+                    <a class="link link_theme_normal tabs-navigation__tab i-bem" data-bem='{"link":{}}' rel="noopener"
+                       target="_blank" href="//yandex.com/video/?family=yes&amp;where=all"
+                       data-counter="[&quot;w&quot;,&quot;8.228.208.231&quot;]">Video</a>
+                    <a class="link link_theme_normal tabs-navigation__tab i-bem" data-bem='{"link":{}}' rel="noopener"
+                       target="_blank" href="https://yandex.com/maps/?family=yes"
+                       data-counter="[&quot;w&quot;,&quot;8.228.208.23&quot;]">Maps</a>
+                    <a class="link link_theme_normal tabs-navigation__tab i-bem" data-bem='{"link":{}}' rel="noopener"
+                       target="_blank" href="https://translate.yandex.com/?family=yes"
+                       data-counter="[&quot;w&quot;,&quot;8.228.208.575&quot;]">Translate</a>
+                    <span class="link link_theme_normal tabs-navigation__tab tabs-navigation__more i-bem"
+                          data-bem='{"link":{}}' tabindex="0" target="" role="button"
+                          data-counter="[&quot;w&quot;,&quot;8.228.208.75&quot;]">More</span>
+                    <a class="link link_theme_normal tabs-navigation__tab tabs-navigation__tab_extra_yes i-bem"
+                       data-bem='{"link":{}}' rel="noopener" target="_blank" href="https://disk.yandex.com/?"
+                       data-counter="[&quot;w&quot;,&quot;8.228.208.1032&quot;]">Disk</a>
+                    <a class="link link_theme_normal tabs-navigation__tab tabs-navigation__tab_extra_yes i-bem"
+                       data-bem='{"link":{}}' rel="noopener" target="_blank" href="https://mail.yandex.com/?"
+                       data-counter="[&quot;w&quot;,&quot;8.228.208.176&quot;]">Mail</a>
+                    <a class="link link_theme_normal tabs-navigation__tab tabs-navigation__tab_extra_yes i-bem"
+                       data-bem='{"link":{}}' rel="noopener" target="_blank" href="//yandex.com/all/?"
+                       data-counter="[&quot;w&quot;,&quot;8.228.208.136&quot;]">More</a>
+                </div>
+                <script nonce="9632594891591353114085" id="tabs-navigation-relocator">(function () {
+                    var t = document.getElementById.bind(document), e = t("tabs-navigation-itself"),
+                        n = t("tabs-navigation-relocator"), r = t("tabs-navigation-placeholder");
+                    r && (e.removeChild(n), r.parentNode.replaceChild(e, r), e.id = "tabs-navigation-placeholder")
+                })();</script>
+            </div>
+            <div class="b-501px b-501px_hidden-controls_yes b-501px_today_yes b-501px_preload_yes b-501px_slider_yes b-501px_initialize_yes b-501px_popup_yes b-501px_wizard_yes b-501px_counter_yes i-bem"
+                 data-bem='{"b-501px":{"today":{"slide":{"preview":"//avatars.mds.yandex.net/get-imageoftheday/103124/ca8dff4a37ff42b2af26003f91b257ed/orig","back":"//avatars.mds.yandex.net/get-imageoftheday/103124/b9ab6c2a712c470da1c07a08f4482c5c/orig","appropriate":{"width":1920,"height":1080,"ratio":{"width":16,"height":9},"url":"//avatars.mds.yandex.net/get-imageoftheday/145844/4a3e8a5f9252499193c217943637bbc2/orig","focus":{"left":45,"top":90}}},"snippet":{"title":"In Bruges","query":"night city HD","link":"/images/search?text=%D0%BD%D0%BE%D1%87%D0%BD%D0%BE%D0%B9+%D0%B3%D0%BE%D1%80%D0%BE%D0%B4+%D0%BE%D0%B1%D0%BE%D0%B8&amp;banner=no","description":"This photo was taken in the touristic centre of town, but at that moment it was unusually quiet: crowds of tourists admired and photographed, but unwittingly spoke in a whisper."},"date":"1980-01-01","author":{"name":"Andrey Sebrant","link":"https://fotki.yandex.ru/users/asebrant?utm_campaign=YandexPartnership&amp;utm_medium=web&amp;utm_source=Yandex","linkText":"Andrey Sebrant on Yandex.Photos","description":null},"partner":"yafotki","hash_date":"GYABAQ","sizes":[{"width":1040,"height":1536},{"width":1150,"height":1734},{"width":1280,"height":1024},{"width":1280,"height":768},{"width":1280,"height":960},{"width":1920,"height":1080},{"width":1920,"height":1200},{"width":1920,"height":1920},{"width":2048,"height":1536},{"width":2048,"height":2048},{"width":2208,"height":2208},{"width":2448,"height":2448},{"width":2560,"height":1440},{"width":2560,"height":1600},{"width":2880,"height":1800},{"width":480,"height":480},{"width":851,"height":315},{"width":960,"height":960}]},"previous":[],"previousSizes":{"back":{"width":400,"height":200},"preview":{"width":900,"height":560},"share":{"width":900,"height":560}},"hasPrev":false,"hasNext":false}}'
+                 role="region" aria-label="Image of the day">
+                <div class="b-501px__center">
+                    <div class="b-501px__center-wrapper">
+                        <div class="b-501px__caption">
+                            <button class="button button_only-icon_yes button_size_s b-501px__caption-icon i-bem"
+                                    data-bem='{"button":{}}'
+                                    type="button" autocomplete="off" title="More info">
+                                    <span class="button__text">
+                                        <div class="button__image button__icon"></div>
+                                    </span>
+                            </button>
+                            <a class="button2 button2_size_m button2_theme_pseudo button2_type_link button2_view_classic b-501px__info-button i-bem"
+                               data-bem='{"button2":{}}' tabindex="0" rel="noopener" target="_blank"
+                               href="https://fotki.yandex.ru/users/asebrant?utm_campaign=YandexPartnership&amp;utm_medium=web&amp;utm_source=Yandex">
+                                    <span class="button2__text">
+                                        <span class="b-501px__caption-title">Image of the day: </span>
+                                        <span class="b-501px__name">In Bruges</span>,
+                                        <span class="b-501px__caption-author"></span>
+                                    </span>
+                            </a>
+                        </div>
+                        <p class="b-501px__description">This photo was taken in the touristic centre of town, but at
+                            that moment it was unusually quiet:
+                            crowds of tourists admired and photographed, but unwittingly spoke in a whisper.</p>
+                    </div>
+                </div>
+                <div class="b-501px__shadow b-501px__shadow_position_top"></div>
+                <div class="b-501px-slider b-501px-slider_preview-disabled_yes b-501px-slider_transform_yes i-bem"
+                     data-bem='{"b-501px-slider":{"maxSize":{"width":900,"height":560}}}'>
+                    <div class="b-501px-slider__background b-501px-slider__background_pos_prev"></div>
+                    <div class="b-501px-slider__background b-501px-slider__background_pos_current"
+                         style="background-image: url(&quot;//avatars.mds.yandex.net/get-imageoftheday/103124/b9ab6c2a712c470da1c07a08f4482c5c/orig&quot;); "></div>
+                    <div class="b-501px-slider__background b-501px-slider__background_pos_next"></div>
+                    <div class="b-501px-slider__main b-501px__slider-main">
+                        <div class="b-501px-slider__arrow b-501px-slider__arrow_dir_prev" tabindex="0"
+                             aria-label="Previous day's image">
+                            <div class="b-501px-slider__arrow-icon"></div>
+                        </div>
+                        <div class="b-501px-slider__arrow b-501px-slider__arrow_dir_next b-501px-slider__arrow_hidden_yes"
+                             tabindex="1" aria-label="Next day's image">
+                            <div class="b-501px-slider__arrow-icon"></div>
+                        </div>
+                        <div class="b-501px-slider__list">
+                            <div class="b-501px-slider__preview b-501px-slider__preview_hidden_yes">
+                                <img class="b-501px-slider__thumb" src="" alt="">
+                            </div>
+                            <div class="b-501px-slider__preview b-501px-slider__preview_hidden_yes">
+                                <img class="b-501px-slider__thumb" src="" alt="">
+                            </div>
+                            <div class="b-501px-slider__preview b-501px-slider__preview_hidden_yes">
+                                <img class="b-501px-slider__thumb" src="" alt="">
+                            </div>
+                            <div class="b-501px-slider__preview b-501px-slider__preview_hidden_yes">
+                                <img class="b-501px-slider__thumb" src="" alt="">
+                            </div>
+                            <div class="b-501px-slider__preview b-501px-slider__preview_hidden_yes">
+                                <img class="b-501px-slider__thumb" src="" alt="">
+                            </div>
+                        </div>
+                        <img class="b-501px__download-me" src="" alt="">
+                    </div>
+                    <div class="b-501px-slider__paranja b-501px-slider__paranja_visible_yes"></div>
+                    <div class="spin2 spin2_size_m spin2_progress_yes spin2_position_center"></div>
+                </div>
+                <div class="b-501px__footer">
+                    <div class="b-501px__left">
+                        <a class="button button_size_m button_theme_clear button_type_search button_triggerable_yes b-501px__search link link_theme_normal link_ajax_yes i-bem"
+                           data-bem='{"button":{}}'
+                           href="/images/search?text=%D0%BD%D0%BE%D1%87%D0%BD%D0%BE%D0%B9+%D0%B3%D0%BE%D1%80%D0%BE%D0%B4+%D0%BE%D0%B1%D0%BE%D0%B8&amp;banner=no">
+                                <span class="button__text">
+                                    <span class="icon button__icon"></span>
+                                    <span class="b-501px__search-text">More images
+                                        <br> of this topic</span>
+                                </span>
+                        </a>
+                        <div class="b-501px__wizard">
+                            <div class="b-501px-wizard__popup">
+                                <div class="popup popup_hoverable_yes popup_wizard_yes popup_theme_ffffff popup_autoclosable_yes popup_adaptive_yes popup_animate_yes i-bem"
+                                     data-bem='{"popup":{"directions":"top-right-right"}}'>
+                                    <div class="popup__under"></div>
+                                    <i class="popup__tail"></i>
+                                    <div class="popup__content">
+                                        <div class="b-501px-wizard b-501px-wizard_visibility_hidden i-bem"
+                                             data-bem='{"b-501px-wizard":{}}'>
+                                            <div class="b-501px-wizard__content"></div>
+                                            <div class="spin2 spin2_size_m"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="b-501px__popup"></div>
+                    </div>
+                </div>
+                <div class="b-501px__shadow b-501px__shadow_position_bottom"></div>
+                <div class="b-501px-popup b-501px-popup_type_info b-501px-popup_scrollable_yes b-501px-popup_centering_yes b-501px-info i-bem"
+                     data-bem='{"b-501px-popup":{},"b-501px-info":{"path":"//yastatic.net/images-thumbs/_/","images":[{"basic":"xtxUJ7z-jysguAQxikuaN6Utd_E.jpg","retina":"QDPqaLlvYdJCZYC1yrEgALkBONs.jpg"},{"basic":"Tu6Hc5NMVZZjMXWmjA8A_fzkjgk.jpg","retina":"IjErfjkeMB8iyFYNiMpl3_b7vq4.jpg"},{"basic":"SyIpoUyPh5a75toDRYMKwEaCgGE.jpg","retina":"WfnsZYncTRSeEjGo-2ohttSWJVk.jpg"},{"basic":"eN2xsIiJD0OcabR6OtSgMXxeWR4.jpg","retina":"xbds8S9Eo6jUWVS5-3X38Yu31ac.jpg"},{"basic":"YXkTobshTrpV7yLNwyLjaMnd4-E.jpg","retina":"anOKADnYEnlK0i_DoG9UPtDFMHk.jpg"},{"basic":"x9LIuKa1iOT-tNJ6JTbeF2mm6_M.jpg","retina":"73Fv6PrESW8penpKX27arKIXR2Y.jpg"}]}}'>
+                    <div class="b-501px-popup__content-wrapper">
+                        <div class="b-501px-popup__content">
+                            <div class="b-501px-popup__close"></div>
+                            <h1 class="b-501px-popup__title">Image of the day</h1>
+                            <div class="b-501px-info__texts clearfix">
+                                <div class="b-501px-info__text b-501px-info__text-gear">
+                                    <div class="b-501px-info__icon-wrap">
+                                        <span class="icon icon__text-gear"></span>
+                                    </div>
+                                    A special algorithm chooses the photos that you are most likely to enjoy.
+                                </div>
+                                <div
+                                        class="b-501px-info__text b-501px-info__text-download">
+                                    <div class="b-501px-info__icon-wrap">
+                                        <span class="icon icon__text-download"></span>
+                                    </div>
+                                    Download it any time during the 24-hour period that it is displayed and use it as
+                                    your desktop background.
+                                </div>
+                                <div class="b-501px-info__text b-501px-info__text-sizes">
+                                    <div class="b-501px-info__icon-wrap">
+                                        <span class="icon icon__text-sizes"></span>
+                                    </div>
+                                    All images fit&nbsp;screens of any size.
+                                </div>
+                            </div>
+                            <div class="b-501px-info__partners">
+                                <div class="b-501px-info__images">
+                                    <img class="b-501px-info__image" src="" alt="">
+                                    <img class="b-501px-info__image" src="" alt="">
+                                    <img class="b-501px-info__image" src="" alt="">
+                                    <img class="b-501px-info__image" src="" alt="">
+                                    <img class="b-501px-info__image" src="" alt="">
+                                    <img class="b-501px-info__image" src="" alt="">
+                                </div>
+                                <div class="b-501px-info__partners-logos">
+                                    <div class="b-501px-info__logos-wrap">
+                                        <a class="link link_theme_outer b-501px-info__partner-logo b-501px-info__partner-logo_partner_fotodom i-bem"
+                                           data-bem='{"link":{}}' rel="noopener" target="_blank" tabindex="0"
+                                           href="http://fotodom.ru"></a>
+                                        <a class="link link_theme_outer b-501px-info__partner-logo b-501px-info__partner-logo_partner_airpano i-bem"
+                                           data-bem='{"link":{}}' rel="noopener" target="_blank" tabindex="0"
+                                           href="http://airpano.com"></a>
+                                        <a class="link link_theme_outer b-501px-info__partner-logo b-501px-info__partner-logo_partner_rgo i-bem"
+                                           data-bem='{"link":{}}' rel="noopener" target="_blank" tabindex="0"
+                                           href="http://www.rgo.ru/ru"></a>
+                                        <a class="link link_theme_outer b-501px-info__partner-logo b-501px-info__partner-logo_partner_aquatilis i-bem"
+                                           data-bem='{"link":{}}' rel="noopener" target="_blank" tabindex="0"
+                                           href="https://www.flickr.com/photos/a_semenov/"></a>
+                                        <a class="link link_theme_outer b-501px-info__partner-logo b-501px-info__partner-logo_partner_500px i-bem"
+                                           data-bem='{"link":{}}' rel="noopener" target="_blank" tabindex="0"
+                                           href="https://500px.com/?utm_campaign=YandexPartnership"></a>
+                                        <a class="link link_theme_outer b-501px-info__partner-logo b-501px-info__partner-logo_partner_fotki-eng i-bem"
+                                           data-bem='{"link":{}}' rel="noopener" target="_blank" tabindex="0"
+                                           href="https://fotki.yandex.ru/"></a>
+                                        <a class="link link_theme_outer b-501px-info__partner-logo b-501px-info__partner-logo_partner_natgeo-rus i-bem"
+                                           data-bem='{"link":{}}' rel="noopener" target="_blank" tabindex="0"
+                                           href="http://www.nat-geo.ru/photo/contest/1034240-dikaya-priroda-rossii-2017/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="b-501px-info__footer clearfix">
+                                <div class="b-501px-info__partners-links clearfix">
+                                    <a class="link link_theme_normal b-501px-info__footer-link b-501px-info__footer-link_align_left i-bem"
+                                       data-bem='{"link":{}}' rel="noopener" target="_blank" tabindex="0"
+                                       href="https://yandex.com/support/images/main-page.xml">Find out more about the
+                                        algorithm</a>
+                                    <a class="link link_theme_normal b-501px-info__footer-link b-501px-info__footer-link_align_right i-bem"
+                                       data-bem='{"link":{}}' rel="noopener" target="_blank" tabindex="0"
+                                       href="https://yandex.com/support/images/partner-programs.xml">Partner program</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script nonce="9632594891591353114085">!function (e) {
+                    e.Ya.fit501pxImage = function () {
+                        var t = document.querySelector(".b-501px"), i = document.querySelector(".header"),
+                            n = i ? i.scrollHeight : 0;
+                        t.style.height = e.innerHeight - n + "px"
+                    }, e.Ya.fit501pxImage()
+                }(window);</script>
+            </div>
+            <div class="b-501px-metrika i-bem"
+                 data-bem='{"b-501px-metrika":{"counter":24574469,"source":"organic"}}'></div>
+            <i class="b-statcounter">
+                <i style="background: url(//www.tns-counter.ru/V13a****yandex_ru/ru/UTF-8/tmsec=yandex_images/778110285)"></i>
+            </i>
+            <i class="b-statcounter"></i>
+        </div>
+        <div class="serp-item-tooltip i-bem" data-bem='{"serp-item-tooltip":{}}'>
+            <div class="serp-item-tooltip__fake"></div>
+            <div class="popup2 popup2_target_anchor popup2_autoclosable_no popup2_view_classic popup2_theme_normal tooltip tooltip_use-direction tooltip_theme_normal tooltip_size_s tooltip_view_classic serp-item-tooltip__popup i-bem"
+                 data-bem='{"popup2":{"mainOffset":10,"directions":["top-left"]}}'>
+                <div class="popup2__tail"></div>
+                <div class="tooltip__content"></div>
+            </div>
+        </div>
+    </div>
+    <div class="pane2 pane2_color-position_yes pane2_fullscreen_no pane2_scrollable-info_yes pane2_scrollable-info-everywhere pane2_direct-type_no pane2_market_no pane2_ajax-direct_yes pane2-controller__pane pane2-api advice-controller i-bem"
+         data-bem='{"pane2":{},"pane2-controller__pane":{},"pane2-api":{"checkImageSize":true},"advice-controller":{}}'>
+        <div class="pane2__paranja"></div>
+        <div class="pane2__wrapper">
+            <a class="pane2__close pane2__close_pos_right-out pane2__close_size_small pane2__control" role="button"
+               aria-label="Close"
+               tabindex="0">
+                <div class="pane2__close-icon icon icon_close_yes icon_color_white"></div>
+            </a>
+            <div class="pane2__column pane2__column_type_info">
+                <div class="pane2__info-wrapper">
+                    <div class="market-snippet">
+                        <a class="market-snippet__title market-snippet__title_type_organic link link_theme_normal"
+                           target="_blank"
+                           href=""></a>
+                        <span class="advertising-label advertising-label_type_market-snippet market-snippet__advertising-label">Advert</span>
+                        <div class="market-snippet__preview">
+                            <a class="link link_theme_normal market-snippet__image-wrapper i-bem" data-bem='{"link":{}}'
+                               rel="noopener"
+                               target="_blank" tabindex="0" href="#">
+                                <img class="market-snippet__img">
+                            </a>
+                        </div>
+                        <div class="market-snippet__text"></div>
+                        <div class="market-snippet__market-offers-wrapper"></div>
+                    </div>
+                    <div class="snippet2 pane2__info-item pane2__snippet i-bem" data-bem='{"snippet2":{}}'>
+                        <a class="snippet2__title link link_theme_normal" target="_blank" href=""></a>
+                        <a class="snippet2__link link link_theme_outer" target="_blank" href=""></a>
+                        <div class="snippet2__text"></div>
+                        <button class="button2 button2_theme_clear button2_size_s button2_view_classic pane2__complain snippet2__complain complain2 complain2_layout_text i-bem"
+                                data-bem='{"button2":{}}' type="button" autocomplete="off" title="Complain"
+                                tabindex="0">
+                            <span class="button2__text">Complain</span>
+                        </button>
+                    </div>
+                    <div class="image-source image-source_hidden_yes pane2__bottom-snippet"></div>
+                    <div class="pane2__buttons pane2__info-item">
+                        <div class="sizes pane2__button pane2__button_wide_yes pane2__sizes">
+                            <a class="button2 button2_theme_action button2_size_m button2_type_link button2_pin_brick-clear button2_width_max button2_view_classic sizes__download i-bem"
+                               data-bem='{"button2":{}}' tabindex="0" rel="noopener" target="_blank" href="/">
+                                <span class="icon icon_download button2__icon button2__icon_side_left"></span>
+                                <div class="sizes__download-text">Open</div>
+                                <div class="sizes__sizes">
+                                    <div class="sizes__width"></div>
+                                    <div class="sizes__divider">×</div>
+                                    <div class="sizes__height"></div>
+                                </div>
+                            </a>
+                            <div class="dropdown2 dropdown2_switcher_button2 dropdown2_theme_action dropdown2_size_m sizes__dropdown i-bem"
+                                 data-bem='{"dropdown2":{}}' aria-label="Choose image size">
+                                <button class="button2 button2_view_classic button2_size_m button2_theme_action button2_pin_brick-brick button2_width_auto sizes__dropdown-switcher i-bem"
+                                        data-bem='{"button2":{}}' type="button" autocomplete="off" tabindex="0">
+                                    <span class="icon icon_ellipsis"></span>
+                                </button>
+                                <div class="popup2 popup2_theme_normal popup2_autoclosable_yes popup2_target_anchor popup2_key-closable_yes sizes__popup i-bem"
+                                     data-bem='{"popup2":{"mainOffset":5,"directions":["bottom-center","bottom-left","left-top","left-center","left-bottom"]}}'>
+                                    <div class="sizes__popup-stub"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="button2 button2_theme_normal button2_size_m button2_pin_brick-brick button2_type_link button2_view_classic pane2__button pane2__button_wide_yes pane2__cbir link link_theme_normal link_ajax_yes search-by-image i-bem"
+                           data-bem='{"button2":{}}' tabindex="0" href="#" aria-label="Other sizes and similar">
+                            <span class="icon icon_size_m button2__icon button2__icon_side_left cbir-icon cbir-icon_theme_black"></span>
+                            <span class="search-by-image__text">Other sizes and similar</span>
+                        </a>
+                        <button class="button2 button2_theme_normal button2_pin_brick-brick button2_size_m button2_view_classic pane2__button pane2__button_side_left pane2__disk-button disk-button__button disk-button i-bem"
+                                data-bem='{"button2":{}}' type="button" autocomplete="off" tabindex="0">
+                            <span class="disk-button__icon button2__icon button2__icon_side_left icon icon_type_disk"></span>
+                            <span class="disk-button__text disk-button__text_saved_no">Save</span>
+                            <span class="disk-button__text disk-button__text_saved_yes">Saved</span>
+                        </button>
+                        <div class="share share_type_dropdown share_service_images pane2__button pane2__button_side_right pane2__share i-bem"
+                             data-bem='{"share":{"serviceStredParams":{"pid":40,"cid":73143,"path":"com.${service}"}}}'>
+                            <div class="dropdown2 dropdown2_switcher_button2 dropdown2_theme_normal dropdown2_size_s share__dropdown i-bem"
+                                 data-bem='{"dropdown2":{}}'>
+                                <button class="button2 button2_size_m button2_pin_brick-brick button2_width_auto button2_theme_normal button2_view_classic share__button i-bem"
+                                        data-bem='{"button2":{}}' type="button" autocomplete="off" tabindex="0">
+                                    <span class="icon icon_size_m icon_type_share icon_color_black button2__icon button2__icon_side_left"></span>
+                                    <span class="button2__text">Share</span>
+                                </button>
+                                <div class="popup2 popup2_theme_normal popup2_autoclosable_yes popup2_target_anchor popup2_key-closable_yes share__popup i-bem"
+                                     data-bem='{"popup2":{"mainOffset":5,"directions":["bottom-left"]}}'>
+                                    <div class="share__share-services" data-size="s" data-direction="vertical"
+                                         data-lang="en"
+                                         data-services="facebook,pinterest,twitter"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="direct-snippet direct-snippet_theme_clear direct-snippet_badge_yellow direct-updater i-bem"
+                         data-bem='{"direct-updater":{"includeQuery":1,"commThreshold":0.3,"url":"https://bs.yandex.ru/page/","pageId":262639,"commPageId":262498}}'>
+                        <a class="link link_theme_normal direct-snippet__title i-bem" data-bem='{"link":{}}'
+                           rel="noopener" target="_blank"
+                           tabindex="0" href="#"></a>
+                        <a class="link link_theme_outer direct-snippet__greenurl i-bem" data-bem='{"link":{}}'
+                           rel="noopener"
+                           target="_blank" tabindex="0" href="#"></a>
+                        <div class="direct-snippet__adv-label">Advert</div>
+                        <div class="direct-snippet__text"></div>
+                    </div>
+                    <div class="pane2__delimiter pane2__delimiter_direct"></div>
+                    <div class="pane2__extra-section">
+                        <div class="related2 pane2__related i-bem"
+                             data-bem='{"related2":{"config":[{"minHeight":870,"rowsNumber":3,"baseRowHeight":150},{"minHeight":0,"maxHeight":710,"rowsNumber":2,"baseRowHeight":150}]}}'
+                             role="navigation" aria-labelledby="a11y-related2__title">
+                            <div class="related2__title" id="a11y-related2__title">Related images</div>
+                            <div class="related2__content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pane2__column pane2__column_type_main">
+                <div class="preview2 pane2__preview i-bem" data-bem='{"preview2":{"checkImageSize":true}}'>
+                    <div class="preview2__close"></div>
+                    <button class="button2 button2_theme_clear button2_size_m button2_view_classic pane2__crop-button pane2__crop-button_position_right-bottom advice pane2__crop-button i-bem"
+                            data-bem='{"button2":{},"advice":{"type":"crop","position":[""]}}' type="button"
+                            autocomplete="off" tabindex="0">
+                        <span class="icon icon_size_m icon_crop button2__icon"></span>
+                    </button>
+                    <div class="preview2__wrapper">
+                        <div class="preview2__spin spin2 spin2_size_m"></div>
+                        <img class="preview2__thumb preview2__thumb_overlay_yes" alt="">
+                        <img class="preview2__thumb preview2__thumb_visible_yes">
+                        <div class="preview2__trimmer-wrapper">
+                            <div class="trimmer i-bem" data-bem='{"trimmer":{}}' touch-action="none">
+                                <div class="trimmer__point trimmer__point_position_left-top"></div>
+                                <div class="trimmer__point trimmer__point_position_right-top"></div>
+                                <div class="trimmer__point trimmer__point_position_right-bottom"></div>
+                                <div class="trimmer__point trimmer__point_position_left-bottom"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview2__arrow preview2__arrow_side_left pane2-api__arrow pane2-api__arrow_side_left"
+                         aria-label="Previous"
+                         tab-index="0" aria-role="button">
+                        <div class="preview2__arrow-icon"></div>
+                        <img class="preview2__arrow-image">
+                    </div>
+                    <div class="preview2__arrow preview2__arrow_side_right pane2-api__arrow pane2-api__arrow_side_right"
+                         aria-label="Next" tab-index="0" aria-role="button">
+                        <div class="preview2__arrow-icon"></div>
+                        <img class="preview2__arrow-image">
+                    </div>
+                    <div class="preview2__error">
+                        <div class="preview2__error-content">Unable to download the image. Perhaps it can be found on
+                            <a class="link link_theme_light preview2__error-link i-bem"
+                               data-bem='{"link":{}}' rel="noopener" target="_blank" tabindex="0" href>website</a>.
+                        </div>
+                    </div>
+                    <button class="button2 button2_theme_clear button2_size_m button2_view_classic pane2__fullscreen fullscreen-switcher i-bem"
+                            data-bem='{"button2":{}}' type="button" autocomplete="off" tabindex="0">
+                        <span class="icon icon_size_m icon_fullscreen button2__icon"></span>
+                    </button>
+                    <div class="pane2__bottom"></div>
+                </div>
+                <div class="gallery gallery_direct-over-gallery_yes i-bem" data-bem='{"gallery":{}}'>
+                    <div class="carousel carousel_direction_column i-bem"
+                         data-bem='{"carousel":{"step":"190","offset":300}}'>
+                        <div class="carousel__wrap">
+                            <div class="carousel__list clearfix" role="list"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pane2__slideshow-panel">
+                    <div class="slideshow-controls slideshow-controls_hidden_yes i-bem"
+                         data-bem='{"slideshow-controls":{}}'>
+                        <button class="button2 button2_theme_pseudo button2_size_m button2_view_classic slideshow-controls__action slideshow-controls__action_state_play i-bem"
+                                data-bem='{"button2":{}}' type="button" autocomplete="off" tabindex="0"
+                                aria-label="Start"></button>
+                        <div class="slideshow-controls__info">
+                            <a class="link link_theme_normal slideshow-controls__title i-bem" data-bem='{"link":{}}'
+                               rel="noopener"
+                               target="_blank" tabindex="0" href=""></a>
+                            <a class="link link_theme_normal slideshow-controls__domain i-bem" data-bem='{"link":{}}'
+                               rel="noopener" target="_blank" tabindex="0" href=""></a>
+                        </div>
+                        <button class="button2 button2_theme_pseudo button2_size_s button2_view_classic slideshow-controls__close i-bem"
+                                data-bem='{"button2":{}}' type="button" autocomplete="off" tabindex="0"
+                                aria-label="Close">
+                            <span class="icon icon_size_s icon_type_slideshow-close button2__icon"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="trimmer-controls">
+                    <div class="trimmer-controls__label">Select the area of the image that you want to use for image
+                        search
+                    </div>
+                    <button class="button2 button2_theme_normal button2_size_l button2_view_classic trimmer-controls__cancel i-bem"
+                            data-bem='{"button2":{}}' type="button" autocomplete="off" tabindex="0">
+                        <span class="button2__text">Cancel</span>
+                    </button>
+                    <a class="button2 button2_theme_action button2_size_l button2_type_link button2_view_classic trimmer-controls__search link link_theme_black link_ajax_yes i-bem"
+                       data-bem='{"button2":{}}' tabindex="0">
+                        <span class="button2__text">Search</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="popup2 popup2_target_anchor popup2_autoclosable_no popup2_view_classic popup2_theme_normal tooltip tooltip_size_l tooltip_theme_promo tooltip_tone_default tooltip_view_classic advice-controller__tooltip i-bem"
+             data-bem='{"popup2":{"secondaryOffset":-30,"tailOffset":0,"directions":["right-center","bottom-center","top-center","left-center"]}}'>
+            <div class="popup2__tail"></div>
+            <div class="tooltip__content">
+                <div class="tooltip__description"></div>
+            </div>
+        </div>
+        <div class="advice-controller__fake-owner"></div>
+    </div>
+    <div class="popup popup_has-close_yes popup_autoclosable_no popup_animate_no popup_position_fixed popup_watch-scroll_no popup_theme_ffffff popup_adaptive_yes nps i-bem"
+         data-bem='{"popup":{"directions":"top","position":{"top":"i-kostyl"}},"nps":{"rand":6794603208,"status":"close","expires":1520438737,"save":true}}'>
+        <div class="popup__under"></div>
+        <div class="popup__content">
+            <div class="nps__text"></div>
+            <div class="nps__button">
+                <button class="button button_theme_action button_size_s i-bem" data-bem='{"button":{}}' type="button"
+                        autocomplete="off">
+                    <span class="button__text"></span>
+                </button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <i class="popup__close"></i>
+    </div>
+    <div class="popup popup_has-close_yes popup_autoclosable_no popup_animate_no popup_position_fixed popup_watch-scroll_no popup_theme_ffffff popup_adaptive_yes nps nps_type_ces nps_cbir_yes nps_minimized_no nps_hidden_yes i-bem"
+         data-bem='{"popup":{"directions":"top","position":{"top":"i-kostyl"}},"nps":{"rand":2417709660,"status":"max","expires":1525536337,"save":true,"i18n":{"answer":"Submit","send":"Send","invite":"Help improve Yandex.Images by answering a question","thankyou":"Thank you for helping us improve Yandex.Images!","question":"Was it hard to find what you needed?"}}}'>
+        <div class="popup__under"></div>
+        <div class="popup__content">
+            <div class="nps__text"></div>
+            <span class="radio-button radio-button_size_m radio-button_theme_track radio-button_breadcrumbs_yes radio-button_view_classic i-bem"
+                  data-bem='{"radio-button":{"hint":"rate","live":false}}'>
+                <div class="radio-button__items">
+                    <label class="radio-button__radio radio-button__radio_pos_0 radio-button__radio_side_left"
+                           data-bem='{"radio-button__radio":{"hint":"very easy"}}'
+                           for="uniq152034329524771697">
+                        <span class="radio-button__control-wrap"></span>
+                    </label>
+                    <label class="radio-button__radio radio-button__radio_pos_1"
+                           data-bem='{"radio-button__radio":{"hint":"easy"}}'
+                           for="uniq152034329524771698">
+                        <span class="radio-button__control-wrap"></span>
+                    </label>
+                    <label class="radio-button__radio radio-button__radio_pos_2"
+                           data-bem='{"radio-button__radio":{"hint":"hard"}}'
+                           for="uniq152034329524771699">
+                        <span class="radio-button__control-wrap"></span>
+                    </label>
+                    <label class="radio-button__radio radio-button__radio_pos_3"
+                           data-bem='{"radio-button__radio":{"hint":"very hard"}}'
+                           for="uniq152034329524771700">
+                        <span class="radio-button__control-wrap"></span>
+                    </label>
+                    <label class="radio-button__radio radio-button__radio_pos_4 radio-button__radio_side_right"
+                           data-bem='{"radio-button__radio":{"hint":"I couldn&#39;t find it"}}'
+                           for="uniq152034329524771701">
+                        <span class="radio-button__control-wrap"></span>
+                    </label>
+                </div>
+                <div class="radio-button__hint">rate</div>
+            </span>
+            <div class="nps__button">
+                <button class="button button_theme_action button_size_s i-bem" data-bem='{"button":{}}' type="button"
+                        autocomplete="off">
+                    <span class="button__text"></span>
+                </button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <i class="popup__close"></i>
+    </div>
+</div>
+<div class="paranja paranja_state_close paranja_theme_normal i-bem" data-bem='{"paranja":{}}'></div>
+<div class="footer footer_layout_serp clearfix i-bem"
+     data-bem='{"footer":{"links":{"help-index":"https://yandex.com/support/images/main-page.xml","help":"https://yandex.com/support/images/"}}}'
+     role="contentinfo">
+    <div class="footer__left"></div>
+    <div class="footer__links">
+        <div class="dropdown2 dropdown2_theme_normal dropdown2_size_m dropdown2_switcher_link lang-switcher lang-switcher_noflags_yes i-bem"
+             data-bem='{"dropdown2":{},"lang-switcher":{}}'>
+                <span class="lang-switcher__lang lang-switcher__lang_selected_yes link link_pseudo_yes i-bem"
+                      data-bem='{"link":{}}'
+                      role="button" tabindex="0">
+                    <span class="lang-switcher__lang-name">En</span>
+                </span>
+            <div class="popup2 popup2_theme_normal popup2_autoclosable_yes popup2_target_anchor lang-switcher__popup-content i-bem"
+                 data-bem='{"popup2":{}}'>
+                <ul class="menu menu_theme_normal menu_size_m menu_type_navigation menu_view_classic i-bem"
+                    data-bem='{"menu":{}}'>
+                    <li class="menu__list-item">
+                        <a class="menu__item menu__item_type_link lang-switcher__lang" data-bem='{"menu__item":{}}'
+                           role="link"
+                           href="https://www.yandex.com/portal/set/lang/?intl=id&amp;retpath=https%253A%252F%252Fyandex.com%252Fimages%252F&amp;sk=y75599d7e5c56883d1b312fb68eb8306d">
+                            <span class="menu__text">Idn</span>
+                        </a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a class="menu__item menu__item_type_link lang-switcher__all" data-bem='{"menu__item":{}}'
+                           role="link"
+                           href="https://yandex.com/tune/lang">
+                            <span class="menu__text">More</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <a class="link link_theme_normal footer__link i-bem" data-bem='{"link":{}}' rel="noopener" target="_blank"
+           tabindex="0"
+           href="https://yandex.com/support/images/troubleshooting.xml"
+           data-counter="[&quot;w&quot;,&quot;8.228.295.296&quot;]">Contact us</a>
+        <a class="link link_theme_normal footer__link footer__link_type_help i-bem" data-bem='{"link":{}}'
+           rel="noopener" target="_blank" tabindex="0" href="https://yandex.com/support/images/main-page.xml"
+           data-counter="[&quot;w&quot;,&quot;8.228.295.177&quot;]">Help</a>
+        <a class="link link_theme_normal footer__link i-bem" data-bem='{"link":{}}' rel="noopener" target="_blank"
+           tabindex="0" href="//legal.yandex.com/termsofservice/"
+           data-counter="[&quot;w&quot;,&quot;8.228.295.990&quot;]">Terms and Conditions</a>
+        <a class="link link_theme_normal footer__link i-bem" data-bem='{"link":{}}' rel="noopener"
+           target="_blank" tabindex="0" href="//feedback2.yandex.com/copyright-complaint/">Notifications about
+            copyrights</a>
+        <a class="link link_theme_normal footer__link i-bem" data-bem='{"link":{}}'
+           rel="noopener" target="_blank" tabindex="0" href="//legal.yandex.com/privacy/">Privacy Policy</a>
+    </div>
+    <div class="footer__copyright">
+        <div class="copyright">©
+            <span class="copyright__dates">2011–2018</span>  Yandex LLC
+        </div>
+    </div>
+</div>
+<div class="fade fade_region_main i-bem" data-bem='{"fade":{}}'>
+    <div class="spin2 spin2_size_m i-bem" data-bem='{"spin2":{}}'></div>
+</div>
+<script nonce="9632594891591353114085">window.Ya.__inline_params__ = JSON.parse('{\u0022images\u0022:[\u0022https:\u002f\u002fyastatic.net\u002fimages\u002dislands\u002f_\u002fRH96q9bnKc7bylYvBMSlcZpWqvA.svg\u0022]}');
+window.Ya.callWithParams(function (a) {
+    for (var i = a.images; i.length;) (new Image).src = i.shift()
+});</script>
+<script src="//yastatic.net/jquery/2.1.4/jquery.min.js" data-rCid="2104"></script>
+<script src="//yastatic.net/bem-xjst/7.7.1/bemhtml.min.js" data-rCid="2776"></script>
+<script src="//yastatic.net/images-islands/0x62aa3d406/pages-desktop/common/_common.en.js" data-rCid="2775"></script>
+<script src="https://yastatic.net/images-islands/_/IYdW3yr249yeeREPlfH_gibKpdo.js" data-rCid="2777"></script>
+<script nonce="9632594891591353114085">(function ($data) {
+    BEM.afterCurrentEvent(function () {
+        BEM.blocks["i-global"].setParams($data)
+    });
+})({"assetsMetadata": {"las": ""}})</script>
+<script nonce="9632594891591353114085">(function ($data) {
+    BEM.afterCurrentEvent(function () {
+        BEM.blocks["i-global"].setParams($data)
+    });
+})({"bundlesMetadata": {"lb": "9!)3c"}})</script>
+<script nonce="9632594891591353114085">!function (i) {
+    window.Ya.addBEMReadyListener(function () {
+        BEM.channel("i-bem").onFirst("init", function () {
+            i.sendTimeMark("2295")
+        })
+    }), $(window).load(function () {
+        i.sendTimeMark("1724")
+    }), $("script[data-rCid]").each(function () {
+        var n = this.getAttribute("data-rCid"), t = this.src;
+        i.sendResTiming(n, t)
+    })
+}(Ya.PerfCounters);</script>
+<script nonce="9632594891591353114085">window.Ya.__inline_params__ = JSON.parse('{\u0022checkDuplicateCountersExp\u0022:false}');
+window.Ya.callWithParams(function (r, t) {
+    function n(r) {
+        if ("function" == typeof t.logJsError) {
+            var n = new Error(r);
+            n.customType = "CountersError", t.logJsError(n)
+        }
+    }
+
+    function o(r) {
+        n(r + " was called before init")
+    }
+
+    function i(r) {
+        n('"' + r + "\" couldn't parse")
+    }
+
+    function e(r) {
+        var t, n = r.getAttribute("data-counter");
+        if (!n) return [];
+        try {
+            t = JSON.parse(n)
+        } catch (o) {
+            return i(n), []
+        }
+        return u(t) ? u(t[0]) ? t : [t] : []
+    }
+
+    function c(t, o) {
+        var i = JSON.stringify(t);
+        return r.checkDuplicateCountersExp ? o[i] ? !0 : (o[i] = !0, !1) : (n('try to send duplicate counter "' + i + '"'), !1)
+    }
+
+    t.Ya = t.Ya || {};
+    var u = Array.isArray, a = {
+        rc: function (r, n) {
+            return t.rc ? void t.rc(r, n[1]) : void o("window.rc")
+        }, w: function (r, n) {
+            return t.w ? void t.w(n[3] ? {href: n[3]} : r, n[1], n[2]) : void o("window.w")
+        }, cp: function (r, n) {
+            return t.cp ? (n.push(r), void t.cp.apply(t, n.slice(1))) : void o("window.cp")
+        }, hit: function (r, n) {
+            return t.c && t.c.hit ? (n.length < 3 && n.push(r), void t.c.hit(n[1], n[2])) : void o("window.c.hit")
+        }
+    };
+    t.Ya.hitCounters = function (r) {
+        for (var t, n, o = {}; r && r.getAttribute;) {
+            t = e(r);
+            for (var i = 0; i < t.length; i++) n = t[i], !c(n, o) && a[n[0]] && a[n[0]](r, n);
+            r = r.parentNode
+        }
+    }, t.addEventListener("mousedown", function (r) {
+        t.Ya.hitCounters(r.target)
+    })
+});</script>
+<script nonce="9632594891591353114085">$(function () {
+    for (var a, i = window.Ya && window.Ya.bemReadyCallbacks || []; a = i.shift();) a()
+});</script>
+<script nonce="9632594891591353114085"></script>
+<i class="b-statcounter i-bem" data-bem='{"b-statcounter":{}}'>
+    <i class="b-statcounter__metrika b-statcounter__metrika_type_js i-bem"
+       data-bem='{"b-statcounter__metrika":{"webvisor":false,"clickmap":false,"trackLinks":false,"accurateTrackBounce":false,"enableAll":false,"params":{"from":"organic","query":{"page":"index"}},"id":722889}}'>
+        <noscript>
+            <img alt="" src="//mc.yandex.ru/watch/722889">
+        </noscript>
+    </i>
+</i>
+<div class="ajax-perf timing i-bem"
+     data-bem='{"ajax-perf":{"vars":{"143":"1119.277.629.1201","287":134},"reqid":"1520352337858640-363501396325948915913531-man1-4085-IMG"},"timing":{"vars":{"143":"1119.277.629","287":134},"reqid":"1520352337858640-363501396325948915913531-man1-4085-IMG","isRUMTimingEnabled":true}}'></div>
+<div class="unread-letters-updater i-bem" data-bem='{"unread-letters-updater":{}}'></div>
+<div class="feedback i-bem" data-bem='{"feedback":{"lr":10590,"submitCounter":null}}'>
+    <div class="popup popup_type_modal popup_position_fixed popup_has-close_yes popup_theme_ffffff popup_autoclosable_yes popup_adaptive_yes popup_animate_yes popup__feedback i-bem"
+         data-bem='{"popup":{"lr":10590,"submitCounter":null}}'>
+        <div class="popup__under popup__under_type_paranja"></div>
+        <div class="popup__content">
+            <div class="popup__complaint">
+                <div class="popup__title">Complain</div>
+                <span class="radiobox radiobox_theme_normal radiobox_size_m radiobox_view_classic i-bem"
+                      data-bem='{"radiobox":{"live":false}}'>
+                        <label class="radiobox__radio" for="uniq152034329524771702">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771702" type="radio"
+                                       name="complaint-query"
+                                       value="no">
+                            </span>
+                            <span class="radiobox__text">About this result</span>
+                        </label>
+                        <label class="radiobox__radio radiobox__radio_checked_yes" for="uniq152034329524771703">
+                            <span class="radiobox__box">
+                                <input class="radiobox__control" id="uniq152034329524771703" type="radio"
+                                       name="complaint-query"
+                                       value="yes" checked>
+                            </span>
+                            <span class="radiobox__text">About the whole page</span>
+                        </label>
+                    </span>
+                <div class="sub-title">Reason for complaint</div>
+                <div class="checkbox-group">
+                        <span class="checkbox checkbox_size_m checkbox_theme_normal checkbox_view_classic checkbox_lines_multi i-bem"
+                              data-bem='{"checkbox":{"live":false}}'>
+                            <span class="checkbox__box">
+                                <input class="checkbox__control" type="checkbox" autocomplete="off"
+                                       id="uniq152034329524771704"
+                                       name="reason-complaint" value="norelevance"
+                                       aria-labelledby="labeluniq152034329524771704">
+                                <i class="checkbox__tick"></i>
+                            </span>
+                            <label class="checkbox__label" aria-hidden="true" id="labeluniq152034329524771704"
+                                   for="uniq152034329524771704">Does not match search query</label>
+                        </span>
+                    <span class="checkbox checkbox_size_m checkbox_theme_normal checkbox_view_classic checkbox_lines_multi i-bem"
+                          data-bem='{"checkbox":{"live":false}}'>
+                            <span class="checkbox__box">
+                                <input class="checkbox__control" type="checkbox" autocomplete="off"
+                                       id="uniq152034329524771705"
+                                       name="reason-complaint" value="revolting"
+                                       aria-labelledby="labeluniq152034329524771705">
+                                <i class="checkbox__tick"></i>
+                            </span>
+                            <label class="checkbox__label" aria-hidden="true" id="labeluniq152034329524771705"
+                                   for="uniq152034329524771705">Shocking or unpleasant information</label>
+                        </span>
+                    <span class="checkbox checkbox_size_m checkbox_theme_normal checkbox_view_classic checkbox_lines_multi i-bem"
+                          data-bem='{"checkbox":{"live":false}}'>
+                            <span class="checkbox__box">
+                                <input class="checkbox__control" type="checkbox" autocomplete="off"
+                                       id="uniq152034329524771706"
+                                       name="reason-complaint" value="porno"
+                                       aria-labelledby="labeluniq152034329524771706">
+                                <i class="checkbox__tick"></i>
+                            </span>
+                            <label class="checkbox__label" aria-hidden="true" id="labeluniq152034329524771706"
+                                   for="uniq152034329524771706">Pornography</label>
+                        </span>
+                </div>
+                <button class="button button_size_m button_disabled_yes button_theme_action button_type_submit i-bem"
+                        data-bem='{"button":{}}' type="button" autocomplete="off" disabled
+                        data-counter="[&quot;w&quot;,&quot;8.228.471.297.1436&quot;]">
+                    <span class="button__text">Complain</span>
+                </button>
+            </div>
+            <div class="popup__result">
+                <div class="popup__title">Thanks for helping make Yandex even better!</div>
+                <div class="popup__thanks-text">Your feedback will be used to improve Yandex's Search algorithms.</div>
+                <button class="button button_size_m button_theme_action button_type_close i-bem"
+                        data-bem='{"button":{}}' type="button" autocomplete="off">
+                    <span class="button__text">Return to Yandex</span>
+                </button>
+            </div>
+        </div>
+        <i class="popup__close"></i>
+    </div>
+</div>
+<div class="disk-domik i-bem" data-bem='{"disk-domik":{}}'>
+    <div class="popup popup_type_modal popup_position_fixed popup_has-close_yes popup_theme_ffffff popup_autoclosable_yes popup_adaptive_yes popup_animate_yes disk-domik__popup">
+        <div class="popup__under popup__under_type_paranja"></div>
+        <div class="popup__content disk-domik__content">
+            <div class="disk-domik__left">
+                <div class="disk-domik__img"></div>
+                <div class="disk-domik__text">Save images to Yandex.Disk. You can access them from any device, sort them
+                    into albums, and share them
+                    with friends and family.
+                </div>
+            </div>
+            <div class="disk-domik__right">
+                <a class="logo logo_type_link logo_name_ys-en-87x35" href="https://yandex.com" tabindex="-1">Yandex</a>
+                <form class="auth auth_content_auto disk-domik__auth i-bem" data-bem='{"auth":{}}' method="post"
+                      action="https://passport.yandex.com/auth" role="form" aria-label="Authorization">
+                    <div class="auth__username">
+                            <span class="input input_theme_normal input_size_m i-bem"
+                                  data-bem='{"input":{"live":true}}'>
+                                <label class="input__hint input__hint_visibility_visible"
+                                       id="hintuniq152034329524771707" for="uniq152034329524771707"
+                                       aria-hidden="true">Username</label>
+                                <span class="input__box">
+                                    <span class="input__clear" unselectable="on"> </span>
+                                    <input class="input__control" id="uniq152034329524771707" name="login"
+                                           placeholder="Username"
+                                           autocomplete="off"
+                                           aria-labelledby="labeluniq152034329524771707 hintuniq152034329524771707"
+                                           aria-required="true">
+                                </span>
+                            </span>
+                    </div>
+                    <div class="auth__password">
+                            <span class="input input_theme_normal input_size_m i-bem"
+                                  data-bem='{"input":{"live":true}}'>
+                                <label class="input__hint input__hint_visibility_visible"
+                                       id="hintuniq152034329524771708" for="uniq152034329524771708"
+                                       aria-hidden="true">Password</label>
+                                <span class="input__box">
+                                    <span class="input__clear" unselectable="on"> </span>
+                                    <input class="input__control" id="uniq152034329524771708" name="passwd"
+                                           placeholder="Password"
+                                           autocomplete="off"
+                                           aria-labelledby="labeluniq152034329524771708 hintuniq152034329524771708"
+                                           type="password" maxlength="256" aria-required="true">
+                                </span>
+                            </span>
+                    </div>
+                    <div class="auth__row auth__row_button_yes">
+                        <div class="auth__haunter">
+                                <span class="checkbox checkbox_theme_normal checkbox_size_m checkbox_view_classic checkbox_lines_multi i-bem"
+                                      data-bem='{"checkbox":{"live":false}}'>
+                                    <span class="checkbox__box">
+                                        <input class="checkbox__control" type="checkbox" autocomplete="off"
+                                               id="uniq152034329524771709"
+                                               name="twoweeks" value="no" aria-labelledby="labeluniq152034329524771709">
+                                        <i class="checkbox__tick"></i>
+                                    </span>
+                                    <label class="checkbox__label" aria-hidden="true" id="labeluniq152034329524771709"
+                                           for="uniq152034329524771709">Don't remember me</label>
+                                </span>
+                        </div>
+                        <div class="auth__button">
+                            <button class="button2 button2_theme_action button2_size_m button2_type_submit button2_view_classic i-bem"
+                                    data-bem='{"button2":{}}' type="submit" autocomplete="off" tabindex="0">
+                                <span class="button2__text">Log in</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="auth__row">
+                        <div class="auth__remember">
+                            <a class="button2 button2_theme_pseudo button2_size_s button2_type_link button2_view_classic i-bem"
+                               data-bem='{"button2":{}}' tabindex="0" href="https://passport.yandex.com/restoration">
+                                <span class="button2__text">Forgot your password?</span>
+                            </a>
+                        </div>
+                        <div class="auth__register">
+                            <a class="button2 button2_theme_pseudo button2_size_s button2_type_link button2_view_classic i-bem"
+                               data-bem='{"button2":{}}' tabindex="0" href="https://passport.yandex.com/registration">
+                                <span class="button2__text">Register</span>
+                            </a>
+                        </div>
+                    </div>
+                    <input class="auth__hidden auth__retpath" type="hidden" name="retpath"
+                           value="https://yandex.com/images/">
+                    <input class="auth__hidden auth__from" type="hidden" name="from">
+                    <input class="auth__hidden auth__origin" type="hidden" name="origin" value="save_images">
+                    <input class="auth__hidden auth__timestamp" type="hidden" name="timestamp">
+                </form>
+            </div>
+        </div>
+        <i class="popup__close"></i>
+    </div>
+</div>
+</body>
+
+</html>

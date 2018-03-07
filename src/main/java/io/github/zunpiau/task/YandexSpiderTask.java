@@ -47,12 +47,15 @@ public class YandexSpiderTask extends BaseSpiderTask<YandexWallpaper, YandexRepo
     }
 
     @Scheduled(cron = "${cron.yandex}", zone = "Asia/Shanghai")
-    @Retryable(value = IOException.class,
-            backoff = @Backoff(3000))
+    @Retryable(value = {IOException.class, InvalidDateException.class},
+            backoff = @Backoff(60000))
     public void crawl() throws IOException {
         logger.info("crawl task start");
         try {
-            save(serial(request()));
+            YandexWallpaper wallpaper = serial(request());
+            if (wallpaper.getDate().equals("1980-01-01"))
+                throw new InvalidDateException();
+            save(wallpaper);
         } catch (IOException e) {
             logger.error(e.getMessage());
             throw e;
@@ -93,6 +96,10 @@ public class YandexSpiderTask extends BaseSpiderTask<YandexWallpaper, YandexRepo
     @Override
     protected void save(YandexWallpaper wallpaper) {
         repository.save(wallpaper);
+    }
+
+    static class InvalidDateException extends RuntimeException {
+
     }
 
 }
