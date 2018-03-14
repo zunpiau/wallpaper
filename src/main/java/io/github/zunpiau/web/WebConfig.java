@@ -43,12 +43,11 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         StringHttpMessageConverter stringHttpMessageConverter = new StringHttpMessageConverter(StandardCharsets.UTF_8);
-        stringHttpMessageConverter.setSupportedMediaTypes(
-                Collections.singletonList(
-                        MediaType.parseMediaType(MediaType.TEXT_HTML_VALUE)));
+        stringHttpMessageConverter.setSupportedMediaTypes(Collections
+                .singletonList(MediaType.TEXT_HTML));
         MappingJackson2HttpMessageConverter jackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
-        jackson2HttpMessageConverter.setSupportedMediaTypes(Collections.singletonList(
-                MediaType.parseMediaType(MediaType.APPLICATION_JSON_VALUE)));
+        jackson2HttpMessageConverter.setSupportedMediaTypes(Collections
+                .singletonList(MediaType.APPLICATION_JSON));
         converters.add(stringHttpMessageConverter);
         converters.add(jackson2HttpMessageConverter);
     }
