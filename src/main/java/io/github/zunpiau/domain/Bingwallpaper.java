@@ -1,6 +1,6 @@
 package io.github.zunpiau.domain;
 
-public class Bingwallpaper {
+public class Bingwallpaper implements Wallpaper {
 
     private final String date;
     private final String url;
@@ -14,10 +14,12 @@ public class Bingwallpaper {
         this.copyright = copyright;
     }
 
+    @Override
     public String getDate() {
         return date;
     }
 
+    @Override
     public String getUrl() {
         return url;
     }

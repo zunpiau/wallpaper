@@ -1,6 +1,8 @@
 package io.github.zunpiau.dao;
 
-public abstract class BaseRepository<T> {
+import io.github.zunpiau.domain.Wallpaper;
+
+public abstract class BaseRepository<T extends Wallpaper> {
 
     public abstract String getLastUrl();
 

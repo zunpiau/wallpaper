@@ -2,7 +2,7 @@ package io.github.zunpiau.domain;
 
 import java.io.Serializable;
 
-public class YandexWallpaper implements Serializable {
+public class YandexWallpaper implements Wallpaper, Serializable {
 
     private String date;
     private String url;
@@ -34,6 +34,7 @@ public class YandexWallpaper implements Serializable {
         this.hashDate = hashDate;
     }
 
+    @Override
     public String getDate() {
         return date;
     }
@@ -42,6 +43,7 @@ public class YandexWallpaper implements Serializable {
         this.date = date;
     }
 
+    @Override
     public String getUrl() {
         return url;
     }

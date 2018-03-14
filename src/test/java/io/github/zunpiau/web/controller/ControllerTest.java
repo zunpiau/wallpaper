@@ -26,10 +26,19 @@ import static org.mockito.Mockito.when;
 @ContextConfiguration(classes = {RootConfig.class, WebConfig.class})
 @WebAppConfiguration
 @ActiveProfiles("dev")
-public class YandexControllerTest {
+public class ControllerTest {
 
     private YandexRepository repository = mock(YandexRepository.class);
     private YandexController controller = new YandexController(repository);
+    private YandexWallpaper wallpaper = new YandexWallpaper("2017-12-17",
+            "https://avatars.mds.yandex.net/get-imageoftheday/103124/d93cd1b36a5d45a0ab5728f39a2d4bcb/orig",
+            "Parallel worlds",
+            "A frosty morning at Dzhangyskol lake in the Altai Mountains, Russia.",
+            "Vladislav Sokolovsky",
+            "http://photo.rgo.ru/ru",
+            "РГО",
+            "IBcSFw"
+    );
     @Autowired
     private WebApplicationContext context;
 
@@ -43,20 +52,19 @@ public class YandexControllerTest {
 
     @Test
     public void getWallpaper() throws Exception {
-        YandexWallpaper wallpaper = new YandexWallpaper("2017-12-17",
-                "https://avatars.mds.yandex.net/get-imageoftheday/103124/d93cd1b36a5d45a0ab5728f39a2d4bcb/orig",
-                "Parallel worlds",
-                "A frosty morning at Dzhangyskol lake in the Altai Mountains, Russia.",
-                "Vladislav Sokolovsky",
-                "http://photo.rgo.ru/ru",
-                "РГО",
-                "IBcSFw"
-        );
         when(repository.getWallpaper("2017-12-17")).thenReturn(wallpaper);
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
         mockMvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/yandex/info?date=2017-12-17"))
                 .andExpect(MockMvcResultMatchers.content().string("{\"date\":\"2017-12-17\",\"url\":\"https://avatars.mds.yandex.net/get-imageoftheday/103124/d93cd1b36a5d45a0ab5728f39a2d4bcb/orig\",\"title\":\"Parallel worlds\",\"description\":\"A frosty morning at Dzhangyskol lake in the Altai Mountains, Russia.\",\"authorName\":\"Vladislav Sokolovsky\",\"authorLink\":\"http://photo.rgo.ru/ru\",\"partner\":\"РГО\",\"hashDate\":\"IBcSFw\"}"));
+    }
 
+    @Test
+    public void testCache() throws Exception {
+        when(repository.getLastWallpaper()).thenReturn(wallpaper);
+        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+        mockMvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/yandex/info")
+                .header("If-None-Match", "\"" + wallpaper.getDate() + "\""))
+                .andExpect(MockMvcResultMatchers.status().isNotModified());
     }
 
     @Test
