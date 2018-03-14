@@ -16,7 +16,8 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 
 @Import({DataConfig.class, LogbackConfig.class, CacheConfig.class})
 @ComponentScan(basePackages = {"io.github.zunpiau"},
-        excludeFilters = @ComponentScan.Filter(type = FilterType.REGEX, pattern = "io.github.zunpiau.web"))
+        excludeFilters = @ComponentScan.Filter(type = FilterType.REGEX,
+                pattern = "io\\.github\\.zunpiau\\.web\\..*"))
 @EnableScheduling
 @EnableRetry
 public class RootConfig {
