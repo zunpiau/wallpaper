@@ -3,6 +3,7 @@ package io.github.zunpiau.web.controller;
 import io.github.zunpiau.config.RootConfig;
 import io.github.zunpiau.dao.YandexRepository;
 import io.github.zunpiau.domain.YandexWallpaper;
+import io.github.zunpiau.web.WebConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = RootConfig.class)
+@ContextConfiguration(classes = {RootConfig.class, WebConfig.class})
 @WebAppConfiguration
 @ActiveProfiles("dev")
 public class YandexControllerTest {
@@ -54,7 +55,7 @@ public class YandexControllerTest {
         when(repository.getWallpaper("2017-12-17")).thenReturn(wallpaper);
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
         mockMvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/yandex/info?date=2017-12-17"))
-                .andExpect(MockMvcResultMatchers.content().string("{\"code\":200,\"data\":{\"date\":\"2017-12-17\",\"url\":\"https://avatars.mds.yandex.net/get-imageoftheday/103124/d93cd1b36a5d45a0ab5728f39a2d4bcb/orig\",\"title\":\"Parallel worlds\",\"description\":\"A frosty morning at Dzhangyskol lake in the Altai Mountains, Russia.\",\"authorName\":\"Vladislav Sokolovsky\",\"authorLink\":\"http://photo.rgo.ru/ru\",\"partner\":\"РГО\",\"hashDate\":\"IBcSFw\"}}"));
+                .andExpect(MockMvcResultMatchers.content().string("{\"date\":\"2017-12-17\",\"url\":\"https://avatars.mds.yandex.net/get-imageoftheday/103124/d93cd1b36a5d45a0ab5728f39a2d4bcb/orig\",\"title\":\"Parallel worlds\",\"description\":\"A frosty morning at Dzhangyskol lake in the Altai Mountains, Russia.\",\"authorName\":\"Vladislav Sokolovsky\",\"authorLink\":\"http://photo.rgo.ru/ru\",\"partner\":\"РГО\",\"hashDate\":\"IBcSFw\"}"));
 
     }
 
@@ -63,7 +64,14 @@ public class YandexControllerTest {
         when(repository.getUrl("2017-13-17")).thenThrow(EmptyResultDataAccessException.class);
         MockMvc mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
         mockMvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/yandex?date=2017-13-17"))
-                .andExpect(MockMvcResultMatchers.content().string("{\"code\":400,\"data\":\"Not available\"}"));
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
+    }
+
+    @Test
+    public void badDateFormat() throws Exception {
+        MockMvc mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
+        mockMvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/yandex/info?date=20170317"))
+                .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 
 }
