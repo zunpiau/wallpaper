@@ -1,3 +1,5 @@
+## [已废弃] 由于 Yandex 图片改版
+
 基于 Spring MVC 和 Spring schedule 的 Yandex/Bing 壁纸接口  
 
 ### 使用
